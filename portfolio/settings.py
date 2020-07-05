@@ -11,9 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.oliverwebdevelopment.com']
 
 
 # Application definition
@@ -66,8 +66,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-  
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'brian101co$default',
+        'USER': 'brian101co',
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': 'brian101co.mysql.pythonanywhere-services.com',
     }
 }
 

@@ -1,0 +1,170 @@
+#header {
+    height: 100vh;
+    margin-top: -3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lead {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 2px #333;
+}
+
+.btn-primary {
+    background-color: #ffa375;
+    border-color: #ffa375;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #ffa375;
+    border-color: #ffa375;
+}
+
+.fa-long-arrow-right {
+    transition: transform 0.2s ease-in;
+}
+
+.btn-primary:hover .fa-long-arrow-right {
+    transform: rotate(90deg);
+}
+
+.icon {
+    display: inline-block;
+    width: 100px;
+}
+
+#skills {
+    margin-top: 5rem;
+}
+
+#skills .tech-title {
+    font-size: 2rem;
+}
+
+.content {
+    max-width: 400px;
+}
+
+#specialization h5 {
+    font-size: 2.5rem;
+}
+
+#specialization .col-sm-12 {
+    display: flex;
+    align-items: stretch;
+}
+
+#specialization .card {
+    border-bottom-right-radius: 30px;
+}
+
+#portfolio .container {
+    background: whitesmoke;
+}
+
+.color-line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 5px;
+    width: 65%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+}
+
+.first {
+    background-color: #ffa375;
+}
+
+.second {
+    background-color: #E63946;
+}
+
+.third {
+    background-color: #457B9D;
+}
+
+.card-link {
+    color: #ffa375;
+}
+
+.img-wrapper {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 35px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    object-fit: cover;
+}
+
+.list-group-item {
+    border: 1px solid rgba(0,0,0,.125) !important;
+    border-radius: 4px !important;
+}
+
+.outer > li {
+    list-style: none;
+}
+
+.inner {
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: linear-gradient(45deg,#E63946, #ffa375);
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact .col-sm-12 {
+    border-bottom-right-radius: 65px;
+    padding: 5rem 3rem;
+}
+
+.alert {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+@media(max-width: 500px ) {
+    #contact .col-sm-12 {
+        flex-direction: column;
+    }
+
+    .email {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-container .card:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #specialization .col-sm-12:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #skills {
+        margin-top: 3.5rem;
+    }
+
+    .lead {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
