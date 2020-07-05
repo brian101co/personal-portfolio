@@ -1,0 +1,35 @@
+{% extends 'jobs/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/hire-me.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/_secondary-navbar.html' with urls=urls %}
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 card shadow p-5 mt-4">
+                    <h1 class="mb-4">Thanks for considering me for your project.</h1>
+                    <p class="text-muted mb-4">Drop me a line below about your project details and we can discuss getting your business online. I look forward to working with you.</p>
+            
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% include 'partials/_secondary-footer.html' with urls=urls %}
+   
+{% endblock %}

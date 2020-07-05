@@ -25,4 +25,8 @@ $('a[href*="#"]')
         }
       }
     });
+
+    setTimeout(() => {
+      $('.alert').remove()
+    }, 3000)
 })

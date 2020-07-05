@@ -1,11 +1,16 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 STATUS_CHOICES = (
     ('P', 'Published'),
     ('D', 'Draft'),
-)
+)   
+
+class PostManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status='P')
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -20,8 +25,16 @@ class Post(models.Model):
     status = models.CharField(max_length=1,
                               choices=STATUS_CHOICES,
                               default='D')
+    
+    published = PostManager()
+
     class Meta:
         ordering = ('-publish',)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:blog-detail', kwargs={
+            'slug': self.slug,
+        })

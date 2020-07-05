@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/_secondary-navbar.html' %}
+
+<section>
+    <div class="container">
+        {% for post in posts %}
+        <div class="row">
+            <div class="col-sm-12">
+                <article class="p-4">
+                    <div class="text-muted text-center my-3">{{ post.publish|date:"F j, Y" }}</div>
+                    <h2 class="text-center">{{ post.title }}</h2>
+                    <div class="text-primary text-center my-3">Tags</div>
+                    <div class="img-container">
+                        <img src="#" class="img-fluid" alt="">
+                    </div>
+                    <p>
+                        {{ post.body|linebreaks|truncatewords:75 }}
+                    </p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </article>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+

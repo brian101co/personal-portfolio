@@ -135,7 +135,30 @@
     padding: 5rem 3rem;
 }
 
+.alert {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
 @media(max-width: 500px ) {
+    #contact .col-sm-12 {
+        flex-direction: column;
+    }
+
+    .email {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-container .card:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #specialization .col-sm-12:not(:first-child) {
+        margin-top: 1rem;
+    }
+
     #skills {
         margin-top: 3.5rem;
     }

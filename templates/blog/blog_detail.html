@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/details.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/_nav-bar.html' %}
+
+    <h1>Blog Detail</h1>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

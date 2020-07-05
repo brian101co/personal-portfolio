@@ -74,33 +74,30 @@
             </div>
 
             <div class="row mt-5" id="specialization">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 d-flex justify-content-center">
                     <div class="card shadow position-relative" style="width: 20rem;">
                         <div class="color-line first"></div>
                         <div class="card-body px-4 py-5">
                           <h5 class="card-title">Django Development</h5>
-                          <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis alias ipsum aspernatur repellat, eligendi magni?</p>
-                          <a href="#" class="card-link">Know More</a>
+                          <p class="card-text">Use Django to build secure, scalable, and performant backends to meet the demands as your business grows.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 d-flex justify-content-center">
                     <div class="card shadow position-relative" style="width: 20rem;">
                         <div class="color-line second"></div>
                         <div class="card-body px-4 py-5"">
                           <h5 class="card-title">Custom Design</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad reiciendis, beatae perspiciatis corrupti incidunt.</p>
-                          <a href="#" class="card-link">Know More</a>
+                          <p class="card-text">Creating responsive custom designs with modern CSS and frameworks to showcase your business or organization.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 d-flex justify-content-center">
                     <div class="card shadow position-relative" style="width: 20rem;">
                         <div class="color-line third"></div>
                         <div class="card-body px-4 py-5"">
                           <h5 class="card-title">Digital Marketing</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, saepe accusantium voluptas numquam nihil illum!</p>
-                          <a href="#" class="card-link">Know More</a>
+                          <p class="card-text">Provide social media management and digital marketing services to promote and grow your business online.</p>
                         </div>
                     </div>
                 </div>
@@ -112,11 +109,11 @@
         <div class="container p-4 pb-5">
             <div class="content mx-auto mb-5">
                 <h1 class="text-center display-4 mb-4">Portfolio</h1>
-                <p class="text-muted text-center">A list of projects I have worked on for people.</p>
+                <p class="text-muted text-center">A selection of projects that I have designed and developed.</p>
             </div>
-            <div class="row d-flex justify-content-around">
+            <div class="row d-flex justify-content-around card-container">
                 {% for job in jobs %}
-                    <div class="card" style="width: 22rem;">
+                    <div class="card" style="width: 21rem;">
                         {% if job.image %}
                         <img src="{{ job.image.url }}" class="card-img-top" alt="...">
                         {% endif %}
@@ -144,7 +141,7 @@
                 </div>
                 <div class="col-sm-12 col-md-6 px-5">
                     <h1 class="display-4 ml-4">Why Me?</h1>
-                    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptatibus?</p>
+                    <p class="text-muted">Hardworking and will do my best to make your business come alive and grow in a digital domain.</p>
                     <ul class="list-group">
                         <li class="list-group-item shadow-sm mt-4 position-relative">
                             <div class="inner">1</div>Logical
@@ -179,14 +176,22 @@
             <div class="row">
                 <h1 class="mx-auto mb-5 display-4">Contact Me</h1>
                 <div class="col-sm-12 d-flex justify-content-around align-items-center bg-dark position-relative">
-                    <h1 class="text-white">Say Hello!</h1>
-                    <span class="text-white">oliverdevelopment@gmail.com</span>
-                    <a href="#" class="btn btn-primary text-white">Say Hello</a>
+                    <h1 class="text-white">Say, Hello!</h1>
+                    <span class="text-white email">oliverdevelopment@gmail.com</span>
+                    <button type='button' class="btn btn-primary text-white" data-toggle="modal" data-target="#staticBackdrop">Say, Hello</button>
                 </div>
             </div>
         </div>
     </section>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
 
+{% include 'partials/_contact-modal.html' with form=form %}
 {% include 'partials/_footer.html' %}
 {% endblock %}
 
