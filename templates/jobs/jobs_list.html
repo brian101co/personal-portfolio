@@ -113,7 +113,7 @@
             </div>
             <div class="row d-flex justify-content-around card-container">
                 {% for job in jobs %}
-                    <div class="card" style="width: 21rem;">
+                    <div class="card" style="width: 21rem;" id="{{ job.slug }}">
                         {% if job.image %}
                         <img src="{{ job.image.url }}" class="card-img-top" alt="...">
                         {% endif %}
@@ -123,7 +123,7 @@
                           <div class="tech-stack">
                               <strong>Tech Stack:</strong> {{ job.tech_stack|title }}
                           </div>
-                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3">Learn More</a>
+                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3" aria-labelledby="{{ job.slug }}">Learn More</a>
                         </div>
                     </div>
                 {% endfor %}
