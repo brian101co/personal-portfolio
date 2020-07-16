@@ -18,7 +18,9 @@
                 <div class="col-sm-12 col-md-6 p-4">
                     <h1>{{ job.title }}</h1>
                     <hr>
+                    {% autoescape on %}
                     <p>{{ job.body|linebreaks }}</p>
+                    {% endautoescape %}
                     <p><strong>Technologies:</strong> {{ job.tech_stack|title }}</p>
                     <div class="d-flex">
                         <a href="{{ job.site_url }}" class="btn btn-primary mr-2">Live Site</a>
