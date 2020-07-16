@@ -18,7 +18,7 @@
                 <div class="col-sm-12 col-md-6 p-4">
                     <h1>{{ job.title }}</h1>
                     <hr>
-                    {% autoescape on %}
+                    {% autoescape off %}
                     <p>{{ job.body|linebreaks }}</p>
                     {% endautoescape %}
                     <p><strong>Technologies:</strong> {{ job.tech_stack|title }}</p>
