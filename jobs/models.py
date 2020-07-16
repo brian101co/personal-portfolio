@@ -25,3 +25,5 @@ class Job(models.Model):
 
     def get_about_url():
         return reverse('jobs:job-list-id', kwargs={'section_id': '#whyme'})
+
+       

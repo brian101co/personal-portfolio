@@ -41,6 +41,19 @@
     width: 100px;
 }
 
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #457B9D;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
 #skills {
     margin-top: 5rem;
 }
@@ -130,6 +143,11 @@
     align-items: center;
 }
 
+.sub-title {
+    font-size: 2.5rem;
+    color: rgb(248, 248, 248);
+}
+
 #contact .col-sm-12 {
     border-bottom-right-radius: 65px;
     padding: 5rem 3rem;
@@ -139,6 +157,10 @@
     position: fixed;
     bottom: 0;
     right: 0;
+}
+
+.text-off-white {
+    color: rgb(245, 245, 245) !important;
 }
 
 @media(max-width: 500px ) {

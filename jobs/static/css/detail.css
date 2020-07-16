@@ -24,3 +24,7 @@ body {
 main {
     flex: 1;
 }
+
+.img-fluid {
+    object-fit: cover;
+}
