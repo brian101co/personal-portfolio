@@ -17,13 +17,10 @@
     text-shadow: 2px 2px 2px #333;
 }
 
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
-
+.btn-primary,
 .btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
     background-color: #ffa375;
     border-color: #ffa375;
 }
@@ -79,7 +76,7 @@
     border-bottom-right-radius: 30px;
 }
 
-#portfolio .container {
+#portfolio {
     background: whitesmoke;
 }
 
