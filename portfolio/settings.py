@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'blog',
     'jobs',
     'crispy_forms',
+    "taggit",
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,8 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+TAGGIT_CASE_INSENSITIVE = True
 
 try:
     from .local_settings import *

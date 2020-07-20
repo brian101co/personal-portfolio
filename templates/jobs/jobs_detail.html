@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{% static 'css/detail.css' %}">
 {% endblock %}
 
+{% block title %}
+Job | {{ job.title }}
+{% endblock %}
+
 {% block content %}
 {% include 'partials/_secondary-navbar.html' with urls=urls %}
 <main>
@@ -21,7 +25,12 @@
                     {% autoescape off %}
                     <p>{{ job.body|linebreaks }}</p>
                     {% endautoescape %}
-                    <p><strong>Technologies:</strong> {{ job.tech_stack|title }}</p>
+                    <p>
+                        <strong>Technologies:</strong>
+                        {% for tag in job.tags.all %}
+                        <span class="badge badge-pill badge-secondary">{{ tag }}</span>
+                        {% endfor %}
+                    </p>
                     <div class="d-flex">
                         <a href="{{ job.site_url }}" class="btn btn-primary mr-2">Live Site</a>
                         <a href="{{ job.code_url }}" class="btn btn-primary d-flex align-items-center">

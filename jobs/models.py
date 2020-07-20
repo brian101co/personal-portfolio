@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 class Job(models.Model):
     title = models.CharField(max_length=200)
@@ -9,7 +10,8 @@ class Job(models.Model):
     body = models.TextField()
     site_url = models.CharField(max_length=150)
     code_url = models.CharField(max_length=150)
-    tech_stack = models.CharField(max_length=200)
+
+    tags = TaggableManager()
     
     def __str__(self):
         return self.title

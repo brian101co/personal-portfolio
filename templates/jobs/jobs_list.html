@@ -95,7 +95,7 @@
                         <div class="color-line second"></div>
                         <div class="card-body px-4 py-5"">
                           <h5 class="card-title">Custom <br>Design</h5>
-                          <p class="card-text">Creating responsive custom designs with modern CSS and frameworks to showcase your business or organization.</p>
+                          <p class="card-text">Creating responsive custom designs using modern CSS to make sure your business looks great on all devices.</p>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,10 @@
                           <h5 class="card-title">{{ job.title|title }}</h5>
                           <p class="card-text">{{ job.summary }}</p>
                           <div class="tech-stack">
-                              <strong>Tech Stack:</strong> {{ job.tech_stack|title }}
+                            <strong>Tech Stack:</strong> 
+                            {% for tag in job.tags.all %}
+                            <span class="badge badge-pill badge-secondary">{{ tag }}</span>
+                            {% endfor %}
                           </div>
                           <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3" aria-labelledby="{{ job.slug }}">Learn More</a>
                         </div>

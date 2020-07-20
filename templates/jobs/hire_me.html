@@ -7,6 +7,14 @@
 <link rel="stylesheet" href="{% static 'css/hire-me.css' %}">
 {% endblock %}
 
+{% block head %}
+<meta name="description" content="Specializing in Full-Stack development with Django, hire me to bring your business ideas to life.">
+{% endblock %}
+
+{% block title %}
+Brian Oliver | Hire Me
+{% endblock %}
+
 {% block content %}
 {% include 'partials/_secondary-navbar.html' with urls=urls %}
 
