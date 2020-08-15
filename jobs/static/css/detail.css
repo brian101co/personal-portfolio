@@ -16,6 +16,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 main {
@@ -24,4 +25,27 @@ main {
 
 .img-fluid {
     object-fit: cover;
+}
+
+.job-link {
+    display: block;
+    background-color: whitesmoke;
+}
+
+.job-link:hover {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    text-decoration: none;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #457B9D;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
 }

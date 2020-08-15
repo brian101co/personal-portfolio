@@ -1,8 +1,4 @@
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
-
+.btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #ffa375;
@@ -15,4 +11,8 @@ body {
 
 article {
     background: white;
+}
+
+.blog-link:hover {
+    text-decoration: none;
 }

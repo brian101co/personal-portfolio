@@ -1,10 +1,46 @@
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
-
+.btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #ffa375;
     border-color: #ffa375;
+}
+
+body {
+    background: whitesmoke;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circle img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-link {
+    display: inline-block;
+    background-color: whitesmoke;
+}
+
+.post-link:hover {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    text-decoration: none;
+}
+
+.read-more:hover,
+.text-body:hover {
+    text-decoration: none;
+}
+
+.read-more {
+    color: #ffa375;
+}
+
+.read-more:hover {
+    color: #ffa375;
 }

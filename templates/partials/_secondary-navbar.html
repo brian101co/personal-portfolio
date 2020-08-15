@@ -1,7 +1,7 @@
 {% load job_tags %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">Brian Oliver</a>
+        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">Oliver Web Development</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -9,13 +9,16 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-4">
-              <a class="nav-link text-white " href="{{ urls.portfolio_url|specialChars }}">Portfolio</a>
+              <a class="nav-link text-white link" href="{{ urls.portfolio_url|specialChars }}">Portfolio</a>
             </li>
             <li class="nav-item mr-4">
-              <a class="nav-link text-white " href="{{ urls.about_url|specialChars }}">About</a>
+              <a class="nav-link text-white link" href="{{ urls.about_url|specialChars }}">About</a>
             </li>
             <li class="nav-item mr-4">
-              <a class="nav-link text-white " href="{{ urls.contact_url|specialChars }}">Say Hello</a>
+              <a class="nav-link text-white link" href="{{ urls.contact_url|specialChars }}">Say Hello</a>
+            </li>
+            <li class="nav-item mr-4">
+              <a class="nav-link text-off-white text-white link" href="{% url 'blog:blog-list' %}">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-primary text-white px-3" href="{% url 'jobs:hire-me' %}">Hire Me</a>
@@ -23,4 +26,4 @@
           </ul>
         </div>
     </div>
-  </nav>
+</nav>

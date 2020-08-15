@@ -12,14 +12,13 @@ Job | {{ job.title }}
 
 {% block content %}
 {% include 'partials/_secondary-navbar.html' with urls=urls %}
-<main>
-    <section class="my-5">
-        <div class="container shadow p-3">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <img src="{{ job.image.url }}" alt="" class="img-fluid">
-                </div>
-                <div class="col-sm-12 col-md-6 p-4">
+
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-8">
+                <main class="p-4 bg-white shadow-sm rounded">
+                    <img src="{{ job.image.url }}" alt="" class="img-fluid mb-4 rounded">
                     <h1>{{ job.title }}</h1>
                     <hr>
                     {% autoescape off %}
@@ -31,7 +30,7 @@ Job | {{ job.title }}
                         <span class="badge badge-pill badge-secondary">{{ tag }}</span>
                         {% endfor %}
                     </p>
-                    <div class="d-flex">
+                    <div class="d-flex mt-4">
                         <a href="{{ job.site_url }}" class="btn btn-primary mr-2">Live Site</a>
                         <a href="{{ job.code_url }}" class="btn btn-primary d-flex align-items-center">
                             <div class="icon-container mr-2">
@@ -44,11 +43,32 @@ Job | {{ job.title }}
                             </span>
                         </a>
                     </div>
-                </div>
+                </main>
+            </div>
+            <div class="col-lg-4">
+                <aside class="bg-white shadow-sm p-4 rounded">
+                    <h3>Similar Projects</h3>
+                    <hr>
+                    {% for job in similar_jobs %}
+                    <a href="{{ job.get_absolute_url }}" class="text-body job-link mb-3" aria-labelledby="{{ job.slug }}">
+                        <div id="{{ job.slug }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ job.title }}
+                                </h5>
+                                <p class="card-text">
+                                    {{ job.summary|truncatewords:20 }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </aside>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
+
 
 {% include 'partials/_secondary-footer.html' with urls=urls %}
 {% endblock %}

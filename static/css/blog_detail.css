@@ -1,10 +1,23 @@
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
-
+.btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #ffa375;
     border-color: #ffa375;
+}
+
+body {
+    background: whitesmoke;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circle img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }

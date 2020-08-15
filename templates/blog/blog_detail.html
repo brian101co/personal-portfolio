@@ -1,15 +1,102 @@
 {% extends 'blog/base.html' %}
 
 {% load static %}
+{% load comments %}
+{% load crispy_forms_tags %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/details.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
 {% endblock %}
 
 {% block content %}
-{% include 'partials/_nav-bar.html' %}
+{% include 'partials/_secondary-navbar.html' with urls=urls %}
 
-    <h1>Blog Detail</h1>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8">
+            <main class="bg-white p-4 shadow-sm rounded">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded">
+                {% endif %}
+                <h1>{{ post.title }}</h1>
+                {% get_comment_count for post as comment_count %}
+                <div class="py-3 d-flex">
+                    <p class="mb-0 mr-2">
+                        Published {{ post.publish }}
+                    </p>
+                    <p class="m-0">
+                        {{ comment_count }} comment{{ comment_count|pluralize }}
+                        ha{{ comment_count|pluralize:"s,ve" }} been posted.
+                    </p>
+                </div>
+                <p class="card-text">
+                    {% autoescape off %}
+                        {{ post.body|linebreaks }}
+                    {% endautoescape %}
+                </p>
+            </main>
+        </div>
+        <div class="col-sm-12 col-lg-4 align-self-start">
+            <div class="bg-white p-4 shadow-sm rounded mt-4 mt-lg-0">
+                <aside>
+                    <div class="author-img circle mx-auto">
+                        <img src="{{ post.author.profile.profile_image_thumbnail.url }}" alt="profile image" class="img-fluid ">
+                    </div>    
+                    <h5 class="text-center mt-3">{{ post.author.profile.display_name }}</h5>
+                    <p>
+                        {{ post.author.profile.bio }}
+                    </p>
+                </aside>
+            </div>
+            <div class="bg-white p-4 mt-4 shadow-sm rounded">
+                <aside>
+                    <h3>Similar Posts</h3>
+                    <hr>
+                    {% for post in similar_posts %}
+                  
+                    <a href="{{ post.get_absolute_url }}" class="text-body mb-3" aria-labelledby="{{ job.slug }}">
+                        <div id="{{ post.slug }}">
+                            <div class="card-body post-link">
+                                <h5 class="card-title">
+                                    {{ post.title|title }}
+                                </h5>
+                                <div>
+                                    <span class="mr-2">{{ post.author|title }}</span>
+                                    <span>{{ post.publish|date:"F j, Y" }}</span>
+                                </div>
+                                <p>
+                                    {{ post.body|linebreaks|truncatewords:20 }}
+                                    <a class="read-more" href="{{ post.get_absolute_url }}">Read More</a>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-sm-12 col-lg-8">
+            <div class="bg-white p-lg-4 shadow-sm rounded">
+                <h3>Comments</h3>
+                <hr>
+                {% render_comment_list for post %}
+    
+                <div class="card card-block mb-5">
+                    <div class="card-body">
+                        <h4 class="card-title text-center pb-3">Post your comment</h4>
+                        {% render_comment_form for post %}
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 {% include 'partials/_footer.html' %}
 {% endblock %}

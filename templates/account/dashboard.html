@@ -1,0 +1,25 @@
+{% extends 'jobs/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+{% include 'partials/_secondary-navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="display-4 mt-4">Dashboard</h1>
+            <hr>
+            <p>Welcome to your Dashboard</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

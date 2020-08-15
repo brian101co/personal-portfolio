@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
     background-position: center;
     background-size: cover;
@@ -17,13 +17,10 @@
     text-shadow: 2px 2px 2px #333;
 }
 
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
-
+.btn-primary,
 .btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
     background-color: #ffa375;
     border-color: #ffa375;
 }
@@ -39,6 +36,19 @@
 .icon {
     display: inline-block;
     width: 100px;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #457B9D;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
 }
 
 #skills {
@@ -66,7 +76,7 @@
     border-bottom-right-radius: 30px;
 }
 
-#portfolio .container {
+#portfolio {
     background: whitesmoke;
 }
 
@@ -130,6 +140,12 @@
     align-items: center;
 }
 
+.sub-title {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    color: rgb(248, 248, 248);
+}
+
 #contact .col-sm-12 {
     border-bottom-right-radius: 65px;
     padding: 5rem 3rem;
@@ -139,6 +155,18 @@
     position: fixed;
     bottom: 0;
     right: 0;
+}
+
+.text-off-white {
+    color: rgb(245, 245, 245) !important;
+}
+
+.badge-secondary {
+    background: #8d8d8d;
+}
+
+.custom-card {
+    border-bottom-right-radius: 30px;
 }
 
 @media(max-width: 500px ) {
@@ -166,5 +194,27 @@
     .lead {
         font-size: 2rem;
         text-align: center;
+    }
+
+    .sub-title {
+        font-size: 1.5rem;
+    }
+
+    #header .btn {
+        align-self: center !important;
+    }
+
+    .specializing {
+        font-size: 2.6rem;
+    }
+
+    .specializing-text {
+        text-align: center;
+    }
+}
+
+@media(max-width: 768px ) {
+    #specialization h5 {
+        font-size: 1.6rem;
     }
 }

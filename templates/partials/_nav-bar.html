@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">Brian Oliver</a>
+        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">Oliver Web Development</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,6 +15,9 @@
             </li>
             <li class="nav-item mr-4">
               <a class="nav-link text-off-white link" href="#contact">Say Hello</a>
+            </li>
+            <li class="nav-item mr-4">
+              <a class="nav-link text-off-white link" href="{% url 'blog:blog-list' %}">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-primary text-off-white px-3" href="{% url 'jobs:hire-me' %}">Hire Me</a>

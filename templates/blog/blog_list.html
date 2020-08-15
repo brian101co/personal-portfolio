@@ -7,30 +7,45 @@
 {% endblock %}
 
 {% block content %}
-{% include 'partials/_secondary-navbar.html' %}
-
-<section>
-    <div class="container">
-        {% for post in posts %}
-        <div class="row">
-            <div class="col-sm-12">
-                <article class="p-4">
-                    <div class="text-muted text-center my-3">{{ post.publish|date:"F j, Y" }}</div>
-                    <h2 class="text-center">{{ post.title }}</h2>
-                    <div class="text-primary text-center my-3">Tags</div>
-                    <div class="img-container">
-                        <img src="#" class="img-fluid" alt="">
+{% include 'partials/_secondary-navbar.html' with urls=urls %}
+<main>
+    <section class="pt-5">
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-sm-12 col-md-4">
+                    <div class="card">
+                        <a href="{{ post.get_absolute_url }}" class="text-body blog-link">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.body|linebreaks|truncatewords:40 }}</p>
+                            <hr>
+                            <div class="footer">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="text-muted">AUTHOR</div>
+                                        <div>{{ post.author }}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-muted">TAGS</div>
+                                        {% for tag in post.tags.all %}
+                                        <span>{{ tag }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
                     </div>
-                    <p>
-                        {{ post.body|linebreaks|truncatewords:75 }}
-                    </p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </article>
-            </div>
+                </div>
+                {% endfor %}
+                </div>
         </div>
-        {% endfor %}
-    </div>
-</section>
+    </section>
+</main>
 
 {% include 'partials/_footer.html' %}
 {% endblock %}

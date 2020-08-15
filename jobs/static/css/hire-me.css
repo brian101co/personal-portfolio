@@ -18,3 +18,16 @@ body {
 main {
     flex: 1;
 }
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #457B9D;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}

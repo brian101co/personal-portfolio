@@ -15,21 +15,45 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.oliverwebdevelopment.com']
 
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
 
 # Application definition
 
 INSTALLED_APPS = [
+     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'account',
     'blog',
     'jobs',
     'crispy_forms',
     "taggit",
+    'django_comments_xtd',
+    'django_comments',
+    'debug_toolbar',
+    'compressor',
+    'imagekit',
 ]
+
+COMMENTS_APP = 'django_comments_xtd'
+
+COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
+                     b"Aequam memento rebus in arduis servare mentem.")
+
+# Source mail address used for notifications.
+COMMENTS_XTD_FROM_EMAIL = "noreply@example.com"
+
+# Contact mail address to show in messages.
+COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@example.com"
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -39,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -116,6 +141,15 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_ROOT = STATIC_ROOT
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
@@ -130,6 +164,10 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 TAGGIT_CASE_INSENSITIVE = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 try:
     from .local_settings import *

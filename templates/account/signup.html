@@ -1,0 +1,33 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block content %}
+{% include 'partials/_secondary-navbar.html' %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-12 col-md-6 d-flex flex-column align-items-center">
+            <h1 class="mb-5 mt-md-4 mt-xs-0">Access your project details anywhere.</h1>
+            <img src="{% static 'img/signup.svg' %}" alt="Signup Illustration" class="img-fluid">
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <form action="." method="POST" class="mt-3 p-4 shadow-sm card">
+                <h2 class="mb-3">Create an Account</h2>
+                {{ user_form|crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary w-25">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

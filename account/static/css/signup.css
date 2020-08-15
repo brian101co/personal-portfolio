@@ -1,0 +1,23 @@
+.btn-primary {
+    background-color: #ffa375;
+    border-color: #ffa375;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #ffa375;
+    border-color: #ffa375;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #457B9D;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}

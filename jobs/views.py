@@ -34,8 +34,10 @@ class JobListView(View):
 class JobDetailView(View):
     def get(self, request, slug):
         job = get_object_or_404(Job, slug=slug)
+        similar_jobs = Job.objects.exclude(slug=slug)[:3]
         context = {
             'job': job,
+            'similar_jobs': similar_jobs,
             'urls': {
                 'portfolio_url': Job.get_portfolio_url(),
                 'contact_url': Job.get_contact_url(),
