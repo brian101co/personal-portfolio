@@ -30,9 +30,7 @@
                     </p>
                 </div>
                 <p class="card-text">
-                    {% autoescape off %}
-                        {{ post.body|linebreaks }}
-                    {% endautoescape %}
+                    {{ post.body.html|safe }}  
                 </p>
             </main>
         </div>
@@ -61,11 +59,11 @@
                                     {{ post.title|title }}
                                 </h5>
                                 <div>
-                                    <span class="mr-2">{{ post.author|title }}</span>
+                                    <span class="mr-2">{{ post.author.profile.display_name|title }}</span>
                                     <span>{{ post.publish|date:"F j, Y" }}</span>
                                 </div>
                                 <p>
-                                    {{ post.body|linebreaks|truncatewords:20 }}
+                                    {{ post.summary|linebreaks|truncatewords:20 }}
                                     <a class="read-more" href="{{ post.get_absolute_url }}">Read More</a>
                                 </p>
                             </div>

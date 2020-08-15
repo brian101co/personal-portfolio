@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'compressor',
     'imagekit',
+    'django_quill',
 ]
 
 COMMENTS_APP = 'django_comments_xtd'

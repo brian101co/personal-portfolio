@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+from django_quill.fields import QuillField
 
 STATUS_CHOICES = (
     ('P', 'Published'),
@@ -49,7 +50,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, 
                                on_delete=models.CASCADE, 
                                related_name='blog_posts')
-    body = models.TextField()
+    summary = models.TextField()
+    body = QuillField()
     image = models.ImageField(upload_to='images/', blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

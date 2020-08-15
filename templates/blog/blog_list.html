@@ -21,7 +21,7 @@
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.body|linebreaks|truncatewords:40 }}</p>
+                            <p class="card-text">{{ post.summary|linebreaks|truncatewords:40 }}</p>
                             <hr>
                             <div class="footer">
                                 <div class="row">
