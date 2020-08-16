@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
 {% endblock %}
 
 {% block head %}
-<base href="https://www.oliverwebdevelopment.com/">
+
 <meta name="description" content="Serving Mississippi and the surrounding area, Oliver Web Development strives to grow your business online.">
 {% endblock %}
 
@@ -129,14 +129,14 @@
                         {% endif %}
                         <div class="card-body">
                           <h5 class="card-title">{{ job.title|title }}</h5>
-                          <p class="card-text">{{ job.summary|truncatewords:30 }}</p>
+                          <p class="card-text">{{ job.summary|truncatewords:25 }}</p>
                           <div class="tech-stack">
                             <strong>Tech Stack:</strong> 
                             {% for tag in job.tags.all %}
-                            <span class="badge badge-pill badge-secondary">{{ tag }}</span>
+                            <span class="badge badge-pill">{{ tag }}</span>
                             {% endfor %}
                           </div>
-                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3" aria-labelledby="{{ job.slug }}">Learn More</a>
+                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">Learn More</a>
                         </div>
                     </div>
                 {% endfor %}

@@ -23,7 +23,7 @@ body {
 }
 
 .highlight {
-    color: rgb(138, 214, 204);
+    color: #8ad6cc;
 }
 
 .lead {
@@ -191,8 +191,27 @@ body {
     color: rgb(245, 245, 245) !important;
 }
 
-.badge-secondary {
-    background: #8d8d8d;
+.badge {
+    background-color: #F0F0F0;
+    color: black;
+    font-weight: 400;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-cta {
+    width: max-content;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.card-title {
+    font-weight: bold;
 }
 
 .custom-card {

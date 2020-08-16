@@ -1,3 +1,7 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 #header {
     height: 100vh;
     margin-top: -3rem;
@@ -7,9 +11,19 @@
     justify-content: center;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
+    /* background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color:#385a7b !important;
+}
+
+.highlight {
+    color: rgb(138, 214, 204);
 }
 
 .lead {
@@ -21,8 +35,21 @@
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #ffa375;
-    border-color: #ffa375;
+    background-color: #f77171;
+    border-color: #f77171;
+}
+
+.nav-item .btn-outline-primary {
+    border-color: #f77171;
+    color: #f77171 !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: #f77171;
+    border-color: #f77171;
+    color: white !important;
 }
 
 .fa-long-arrow-right {
@@ -43,7 +70,7 @@
     display: block;
     width: 0;
     height: 2px;
-    background-color: #457B9D;
+    background-color: #f77171;
     transition: width 0.25s ease;
 }
 
@@ -130,7 +157,7 @@
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-top-right-radius: 6px;
-    background: linear-gradient(45deg,#E63946, #ffa375);
+    background: linear-gradient(45deg,rgb(230, 57, 70), #ffa375);
     position: absolute;
     top: -1rem;
     left: -1rem;
@@ -144,6 +171,9 @@
     font-size: 1.75rem;
     line-height: 1.5;
     color: rgb(248, 248, 248);
+    border-left: solid 5px #f77171;
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 #contact .col-sm-12 {
@@ -161,8 +191,8 @@
     color: rgb(245, 245, 245) !important;
 }
 
-.badge-secondary {
-    background: #8d8d8d;
+.badge {
+    background-color: #8ad6cc;
 }
 
 .custom-card {

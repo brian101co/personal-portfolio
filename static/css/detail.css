@@ -8,8 +8,8 @@
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #ffa375;
-    border-color: #ffa375;
+    background-color: #f77171;
+    border-color: #f77171;
 }
 
 body {
@@ -21,6 +21,10 @@ body {
 
 main {
     flex: 1;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
 }
 
 .img-fluid {
