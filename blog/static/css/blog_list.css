@@ -1,8 +1,8 @@
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #ffa375;
-    border-color: #ffa375;
+    background-color: #f77171;
+    border-color: #f77171;
 }
 
 body {
@@ -15,4 +15,8 @@ article {
 
 .blog-link:hover {
     text-decoration: none;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
 }
