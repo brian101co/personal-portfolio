@@ -28,7 +28,7 @@ main {
 }
 
 .job-link {
-    display: inline-block;
+    display: block;
     background-color: whitesmoke;
 }
 

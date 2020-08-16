@@ -6,6 +6,19 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+<link rel="stylesheet" href="{% static 'highlight/night-owl.css' %}">
+<style>
+    .ql-syntax {
+        padding: 1.75em;
+        background: #011627;
+        color: #d6deeb;
+        border-radius: 8px;
+    }
+    .card-text {
+        overflow-x: auto;
+    }
+</style>
+
 {% endblock %}
 
 {% block content %}
@@ -30,7 +43,7 @@
                     </p>
                 </div>
                 <p class="card-text">
-                    {{ post.body.html|safe }}  
+                    {{ post.body.html|safe }}
                 </p>
             </main>
         </div>
@@ -39,7 +52,7 @@
                 <aside>
                     <div class="author-img circle mx-auto">
                         <img src="{{ post.author.profile.profile_image_thumbnail.url }}" alt="profile image" class="img-fluid ">
-                    </div>    
+                    </div>
                     <h5 class="text-center mt-3">{{ post.author.profile.display_name }}</h5>
                     <p>
                         {{ post.author.profile.bio }}
@@ -51,7 +64,7 @@
                     <h3>Similar Posts</h3>
                     <hr>
                     {% for post in similar_posts %}
-                  
+
                     <a href="{{ post.get_absolute_url }}" class="text-body mb-3" aria-labelledby="{{ job.slug }}">
                         <div id="{{ post.slug }}">
                             <div class="card-body post-link">
@@ -76,19 +89,19 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-sm-12 col-lg-8">
+        <div class="col-sm-12">
             <div class="bg-white p-lg-4 shadow-sm rounded">
                 <h3>Comments</h3>
                 <hr>
                 {% render_comment_list for post %}
-    
+
                 <div class="card card-block mb-5">
                     <div class="card-body">
                         <h4 class="card-title text-center pb-3">Post your comment</h4>
                         {% render_comment_form for post %}
                     </div>
                 </div>
-              
+
             </div>
         </div>
     </div>
@@ -98,3 +111,17 @@
 
 {% include 'partials/_footer.html' %}
 {% endblock %}
+
+{% block scripts %}
+<script src="{% static 'highlight/highlight.pack.js' %}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+{% endblock %}
+
+
+
