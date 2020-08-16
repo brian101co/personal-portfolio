@@ -129,7 +129,7 @@
                         {% endif %}
                         <div class="card-body">
                           <h5 class="card-title">{{ job.title|title }}</h5>
-                          <p class="card-text">{{ job.summary }}</p>
+                          <p class="card-text">{{ job.summary|truncatewords:30 }}</p>
                           <div class="tech-stack">
                             <strong>Tech Stack:</strong> 
                             {% for tag in job.tags.all %}
