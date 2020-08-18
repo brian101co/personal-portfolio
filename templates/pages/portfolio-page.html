@@ -31,7 +31,7 @@ Portfolio Projects | Brian Oliver | OWDevelopment
                         <div class="col-md-8 col-lg-7">
                             <div class="card-body">
                               <h1 class="card-title h5">{{ project }}</h1>
-                              <p class="card-text">{{ project.summary }}</p>
+                              <p class="card-text">{{ project.summary|truncatewords:35 }}</p>
                               <a href="{{ project.get_absolute_url }}" class="btn btn-primary">View Project</a>
                             </div>
                           </div>

@@ -43,7 +43,7 @@
 }
 
 .highlight {
-    color: var(--accent-color, #8ad6cc);
+    color: var(--primary-color, #8ad6cc);
 }
 
 .lead {
