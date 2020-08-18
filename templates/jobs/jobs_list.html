@@ -127,7 +127,9 @@
                 {% for job in jobs %}
                     <div class="card custom-card" style="width: 21rem;" id="{{ job.slug }}">
                         {% if job.image %}
-                        <img src="{{ job.image.url }}" class="card-img-top" alt="...">
+                        <div class="img-wrapper">
+                            <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.title }}">
+                        </div>
                         {% endif %}
                         <div class="card-body">
                           <h5 class="card-title">{{ job.title|title }}</h5>
@@ -135,7 +137,7 @@
                           <div class="tech-stack">
                             <strong>Tech Stack:</strong> 
                             {% for tag in job.tags.all %}
-                            <span class="badge badge-pill">{{ tag }}</span>
+                            <span class="badge badge-pill">{{ tag|title }}</span>
                             {% endfor %}
                           </div>
                           <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">Learn More</a>
