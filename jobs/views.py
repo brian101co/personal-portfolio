@@ -9,8 +9,11 @@ class JobListView(View):
     def get_all_jobs(self):
         return Job.objects.all()
 
+    def get_featured_jobs(self):
+        return Job.objects.filter(featured=True)
+
     def get(self, request, *args, **kwargs):
-        jobs = self.get_all_jobs()
+        jobs = self.get_featured_jobs()
         form = ContactForm()
         context = {
             'jobs': jobs,

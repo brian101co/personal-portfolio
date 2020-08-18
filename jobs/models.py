@@ -10,6 +10,9 @@ class Job(models.Model):
     body = models.TextField()
     site_url = models.CharField(max_length=150)
     code_url = models.CharField(max_length=150)
+    featured = models.BooleanField(default=False)
+    testimonial = models.TextField(blank=True)
+    reviewer = models.CharField(max_length=120)
 
     tags = TaggableManager()
     
