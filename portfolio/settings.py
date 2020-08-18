@@ -172,6 +172,27 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'syntax': True,
+            'toolbar': [
+                [
+                    {'font': []},
+                    {'header': [2, 3, 4, 5, 6]},
+                    {'align': []},
+                    'bold', 'italic', 'underline', 'strike', 'blockquote',
+                    {'color': []},
+                    {'background': []},
+                ],
+                [{'list': 'ordered'}, {'list': 'bullet'}],
+                ['code-block', 'code', 'link'],
+            ]
+        }
+    }
+}
+
 try:
     from .local_settings import *
 except ImportError:
