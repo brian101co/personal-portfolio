@@ -11,6 +11,11 @@
 body {
     background: whitesmoke;
 }
+
+code {
+    background-color: #011627 !important;
+    color: #7fdbca !important;
+}
 /*************************************** 
             END PAGE DEFAULTS
 ****************************************/
