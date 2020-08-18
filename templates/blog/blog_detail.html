@@ -22,8 +22,9 @@
 {% endblock %}
 
 {% block content %}
-{% include 'partials/_secondary-navbar.html' with urls=urls %}
-
+<header>
+    {% include 'partials/_secondary-navbar.html' with urls=urls %}
+</header>
 <div class="container mt-4">
     <div class="row">
         <div class="col-sm-12 col-lg-8">
@@ -35,7 +36,7 @@
                 {% get_comment_count for post as comment_count %}
                 <div class="py-3 d-flex">
                     <p class="mb-0 mr-2">
-                        Published {{ post.publish }}
+                        Published {{ post.publish|date:"F j, Y" }}
                     </p>
                     <p class="m-0">
                         {{ comment_count }} comment{{ comment_count|pluralize }}
@@ -61,16 +62,16 @@
             </div>
             <div class="bg-white p-4 mt-4 shadow-sm rounded">
                 <aside>
-                    <h3>Similar Posts</h3>
+                    <h2 class="h3">Similar Posts</h2>
                     <hr>
                     {% for post in similar_posts %}
 
                     <a href="{{ post.get_absolute_url }}" class="text-body mb-3" aria-labelledby="{{ job.slug }}">
-                        <div id="{{ post.slug }}">
+                        <article id="{{ post.slug }} similar-projects">
                             <div class="card-body post-link">
-                                <h5 class="card-title">
+                                <h2 class="card-title h4">
                                     {{ post.title|title }}
-                                </h5>
+                                </h2>
                                 <div>
                                     <span class="mr-2">{{ post.author.profile.display_name|title }}</span>
                                     <span>{{ post.publish|date:"F j, Y" }}</span>
@@ -80,7 +81,7 @@
                                     <a class="read-more" href="{{ post.get_absolute_url }}">Read More</a>
                                 </p>
                             </div>
-                        </div>
+                        </article>
                     </a>
                     {% endfor %}
                 </aside>

@@ -1,29 +1,49 @@
-body {
-    font-family: 'Nunito', sans-serif;
-}
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 15 version
+*/
 
+/*************************************** 
+             HERO SECTION
+****************************************/
 #header {
     height: 100vh;
     margin-top: -3rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.6))),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
+    background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
-    /* background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
+    /* TRYING OUT DIFFERENT HERO SECTION BACKGROUNDS
+    background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.navbar {
-    background-color:#385a7b !important;
-}
-
 .highlight {
-    color: #8ad6cc;
+    color: var(--accent-color, #8ad6cc);
 }
 
 .lead {
@@ -31,53 +51,40 @@ body {
     text-shadow: 2px 2px 2px #333;
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #f77171;
-    border-color: #f77171;
-}
-
-.nav-item .btn-outline-primary {
-    border-color: #f77171;
-    color: #f77171 !important;
-}
-
-.btn-outline-primary:hover,
-.btn-outline-primary:focus,
-.btn-outline-primary:not(:disabled):not(.disabled):active {
-    background-color: #f77171;
-    border-color: #f77171;
-    color: white !important;
+.sub-title {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    color: rgb(248, 248, 248);
+    border-left: solid 5px var(--primary-color, #f77171);
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .fa-long-arrow-right {
+    -webkit-transition: -webkit-transform 0.2s ease-in;
+    transition: -webkit-transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
     transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
 }
 
 .btn-primary:hover .fa-long-arrow-right {
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
 }
 
 .icon {
     display: inline-block;
     width: 100px;
 }
+/*************************************** 
+            END HERO SECTION
+****************************************/
 
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #f77171;
-    transition: width 0.25s ease;
-}
-
-.link:hover::after {
-    width: 100%;
-}
-
+/*************************************** 
+   MY SKILLS AND SPECIALIZATION SECTION
+****************************************/
 #skills {
     margin-top: 5rem;
 }
@@ -86,25 +93,23 @@ body {
     font-size: 2rem;
 }
 
-.content {
-    max-width: 400px;
-}
-
 #specialization h5 {
     font-size: 2.5rem;
 }
 
 #specialization .col-sm-12 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    align-items: stretch;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
 }
 
 #specialization .card {
     border-bottom-right-radius: 30px;
-}
-
-#portfolio {
-    background: whitesmoke;
 }
 
 .color-line {
@@ -113,23 +118,30 @@ body {
     right: 0;
     height: 5px;
     width: 65%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
 }
 
 .first {
-    background-color: #ffa375;
+    background-color: var(--accent-color, #8ad6cc);
 }
 
 .second {
-    background-color: #E63946;
+    background-color: var(--accent-color-secondary, #E63946);
 }
 
 .third {
-    background-color: #457B9D;
+    background-color: var(--accent-color-tertiary, #457B9D);
 }
+/*************************************** 
+    END MY SKILLS AND SPECIALIZATION
+****************************************/
 
-.card-link {
-    color: #ffa375;
+/*************************************** 
+            PORTFOLIO SECTION
+****************************************/
+#portfolio {
+    background: whitesmoke;
 }
 
 .img-wrapper {
@@ -139,9 +151,78 @@ body {
 }
 
 .img-wrapper img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
+.badge {
+    background-color: #F0F0F0;
+    color: black;
+    font-weight: 400;
+}
+
+.card-body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.card-cta {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+.card-text {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.custom-card {
+    border-bottom-right-radius: 30px;
+}
+/*************************************** 
+            END PORTFOLIO
+****************************************/
+
+/*************************************** 
+              TESTIMONIALS
+****************************************/
+#testimonials {
+    background-color: whitesmoke;
+}
+
+.profile-wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+}
+
+.profile-wrapper img {
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+/*************************************** 
+            END TESTIMONIALS
+****************************************/
+
+/*************************************** 
+                 WHY ME
+****************************************/
 .list-group-item {
     border: 1px solid rgba(0,0,0,.125) !important;
     border-radius: 4px !important;
@@ -157,70 +238,51 @@ body {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-top-right-radius: 6px;
+    background: -o-linear-gradient(45deg,rgb(230, 57, 70), #ffa375);
     background: linear-gradient(45deg,rgb(230, 57, 70), #ffa375);
     position: absolute;
     top: -1rem;
     left: -1rem;
     color: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
+/*************************************** 
+            END WHY ME 
+****************************************/
 
-.sub-title {
-    font-size: 1.75rem;
-    line-height: 1.5;
-    color: rgb(248, 248, 248);
-    border-left: solid 5px #f77171;
-    padding-left: 1.5rem;
-    margin-left: 0.5rem;
-}
-
+/*************************************** 
+            CONTACT SECTION
+****************************************/
 #contact .col-sm-12 {
     border-bottom-right-radius: 65px;
     padding: 5rem 3rem;
+    background-color: var(--secondary-color, #385a7b);
 }
+/*************************************** 
+           END CONTACT SECTION 
+****************************************/
 
-.alert {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-.text-off-white {
-    color: rgb(245, 245, 245) !important;
-}
-
-.badge {
-    background-color: #F0F0F0;
-    color: black;
-    font-weight: 400;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-cta {
-    width: max-content;
-}
-
-.card-text {
-    flex: 1;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-.custom-card {
-    border-bottom-right-radius: 30px;
-}
-
+/*************************************** 
+           MOBILE DEVICE STYLES 
+****************************************/
 @media(max-width: 500px ) {
     #contact .col-sm-12 {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .email {
@@ -250,7 +312,10 @@ body {
     }
 
     #header .btn {
-        align-self: center !important;
+        -webkit-align-self: center !important;
+            -ms-flex-item-align: center !important;
+                    -ms-grid-row-align: center !important;
+                align-self: center !important;
     }
 
     .specializing {
@@ -261,9 +326,20 @@ body {
         text-align: center;
     }
 }
+/*************************************** 
+            END MOBILE 
+****************************************/
+
+/*************************************** 
+            TABLET STYLES 
+****************************************/
 
 @media(max-width: 768px ) {
     #specialization h5 {
         font-size: 1.6rem;
     }
 }
+/*************************************** 
+            END TABLET 
+****************************************/
+

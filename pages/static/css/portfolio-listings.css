@@ -1,0 +1,15 @@
+/*************************************** 
+          PROJECT DETAILS CARD
+****************************************/
+article h1.card-title {
+    font-weight: bold;
+}
+
+.card-img {
+    object-fit: cover;
+    height: 100%;
+}
+
+/*************************************** 
+        END PROJECT DETAILS CARD
+****************************************/

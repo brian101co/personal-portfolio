@@ -1,0 +1,48 @@
+{% extends 'jobs/base.html' %}
+
+{% load static mathfilters %}
+
+{% block title %}
+Portfolio Projects | Brian Oliver | OWDevelopment
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/portfolio-listings.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    {% include 'partials/_secondary-navbar.html' %}
+</header>
+
+<main>
+    <section class="mt-5">
+        <h1 class="text-center display-4 mb-5">Project Portfolio</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% for project in object_list %}
+                    <article class="card mb-3 mx-auto" style="max-width: 840px;">
+                        <div class="row no-gutters">
+                          <div class="col-md-4 col-lg-5">
+                            <img src="{{ project.image.url }}" class="card-img img-fluid" alt="{{ project }}">
+                          </div>
+                        <div class="col-md-8 col-lg-7">
+                            <div class="card-body">
+                              <h1 class="card-title h5">{{ project }}</h1>
+                              <p class="card-text">{{ project.summary }}</p>
+                              <a href="{{ project.get_absolute_url }}" class="btn btn-primary">View Project</a>
+                            </div>
+                          </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% include 'partials/_secondary-footer.html' %}
+{% endblock %}

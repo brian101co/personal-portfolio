@@ -1,0 +1,100 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 15 version
+*/
+
+/*************************************** 
+             BASE STYLES
+****************************************/
+:root {
+    /* --primary-color:#f77171; */
+    --primary-color:#f85252;
+    --secondary-color: #426b94;
+    --accent-color: #8ad6cc;
+    --accent-color-secondary: #E63946;
+    --accent-color-tertiary: #457B9D;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--primary-color, #f77171);
+    border-color: var(--primary-color, #f77171);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--primary-color, #f77171);
+    border-color: var(--primary-color, #f77171);
+    color: white !important;
+}
+
+.alert {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+/*************************************** 
+             END BASE STYLES
+****************************************/
+
+/*************************************** 
+             NAVBAR STYLES
+****************************************/
+.navbar {
+    background-color: var(--secondary-color, #385a7b) !important;
+}
+
+.nav-item .btn-outline-primary {
+    border-color: var(--primary-color, #f77171);
+    color: white !important;
+}
+
+.nav-item .btn-outline-primary:hover,
+.nav-item .btn-outline-primary:focus,
+.nav-item .btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--primary-color, #f77171);
+    border-color: var(--primary-color, #f77171);
+    color: white !important;
+}
+
+.link {
+    color: white !important;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color, #f77171);
+    -webkit-transition: width 0.25s ease;
+    -o-transition: width 0.25s ease;
+    transition: width 0.25s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+/***************************************
+           END NAVBAR STYLES
+***************************************/
+
+/*************************************** 
+            FOOTER STYLES
+****************************************/
+footer .nav-link {
+    color: #212121;
+}
+
+/*************************************** 
+              END FOOTER
+****************************************/

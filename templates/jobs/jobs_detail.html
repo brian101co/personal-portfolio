@@ -27,7 +27,7 @@ Job | {{ job.title }}
                     <p>
                         <strong>Technologies:</strong>
                         {% for tag in job.tags.all %}
-                        <span class="badge badge-pill badge-secondary">{{ tag }}</span>
+                        <span class="badge badge-pill">{{ tag }}</span>
                         {% endfor %}
                     </p>
                     <div class="d-flex mt-4">
@@ -46,21 +46,21 @@ Job | {{ job.title }}
                 </main>
             </div>
             <div class="col-lg-4">
-                <aside class="bg-white shadow-sm p-4 rounded">
-                    <h3>Similar Projects</h3>
+                <aside class="bg-white shadow-sm p-4 rounded" id="similar-projects">
+                    <h2 class="h3">Similar Projects</h2>
                     <hr>
                     {% for job in similar_jobs %}
                     <a href="{{ job.get_absolute_url }}" class="text-body job-link mb-3" aria-labelledby="{{ job.slug }}">
-                        <div id="{{ job.slug }}">
+                        <article id="{{ job.slug }}">
                             <div class="card-body">
-                                <h5 class="card-title">
+                                <h2 class="card-title h5">
                                     {{ job.title }}
-                                </h5>
+                                </h2>
                                 <p class="card-text">
                                     {{ job.summary|truncatewords:20 }}
                                 </p>
                             </div>
-                        </div>
+                        </article>
                     </a>
                     {% endfor %}
                 </aside>

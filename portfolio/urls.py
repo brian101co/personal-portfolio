@@ -8,6 +8,7 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('comments/', include('django_comments_xtd.urls')),
     path('account/', include('account.urls', namespace='account')),
+    path('portfolio/', include('pages.urls', namespace='portfolio')),
     path('', include('jobs.urls', namespace='jobs')),
 ]
 

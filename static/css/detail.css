@@ -4,14 +4,6 @@
     margin-top: -5px;
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #f77171;
-    border-color: #f77171;
-}
-
 body {
     display: flex;
     min-height: 100vh;
@@ -21,10 +13,6 @@ body {
 
 main {
     flex: 1;
-}
-
-body {
-    font-family: 'Nunito', sans-serif;
 }
 
 .img-fluid {
@@ -39,17 +27,4 @@ body {
 .job-link:hover {
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
     text-decoration: none;
-}
-
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #457B9D;
-    transition: width 0.25s ease;
-}
-
-.link:hover::after {
-    width: 100%;
 }

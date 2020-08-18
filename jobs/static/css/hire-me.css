@@ -1,34 +1,32 @@
-.btn-primary {
-    background-color: #ffa375;
-    border-color: #ffa375;
-}
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 15 version
+*/
 
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: #f77171;
-    border-color: #f77171;
-}
-
+/*************************************** 
+          STICKY FOOTER STYLES
+****************************************/
 body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     min-height: 100vh;
-    font-family: 'Nunito', sans-serif;
 }
 
 main {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
-
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #457B9D;
-    transition: width 0.25s ease;
-}
-
-.link:hover::after {
-    width: 100%;
-}
+/*************************************** 
+             END FOOTER 
+****************************************/

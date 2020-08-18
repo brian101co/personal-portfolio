@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block head %}
-
 <meta name="description" content="Serving Mississippi and the surrounding area, Oliver Web Development strives to grow your business online.">
 {% endblock %}
 
@@ -16,7 +15,8 @@
 {% endblock %}
 
 {% block content %}
-{% include 'partials/_nav-bar.html' with jobs=jobs %}
+<header>
+    {% include 'partials/_nav-bar.html' with jobs=jobs %}
     <div class="jumbotron jumbotron-fluid" id="header">
         <div class="container d-flex flex-column">
             <h1 class="display-4 lead text-white">
@@ -26,7 +26,9 @@
             <a href="#skills" class="btn btn-primary mt-4 align-self-start">See Services<i class="fa fa-long-arrow-right text-white ml-2" aria-hidden="true"></i></a>
         </div>
     </div>
+</header>
 
+<main role="main">
     <section id="skills">
         <div class="container">
             <div class="row">
@@ -118,7 +120,7 @@
     <section class="mt-5" id="portfolio">
         <div class="container p-4 pb-5">
             <div class="content mx-auto mb-5">
-                <h1 class="text-center display-4 mb-4">Portfolio</h1>
+                <h1 class="text-center display-4 mb-4">Featured Projects</h1>
                 <p class="text-muted text-center">A selection of projects that I have designed and developed.</p>
             </div>
             <div class="row d-flex justify-content-around card-container">
@@ -144,7 +146,7 @@
         </div>
     </section>
 
-    <section id="whyme" class="my-5">
+    <section id="whyme" class="mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -174,38 +176,80 @@
         </div>
     </section>
 
-    <!-- <section id="testimonials">
+    <section id="testimonials" class="py-5 my-5">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-
+                    <h1 class="text-center display-4 mb-4">Testimonials</h1>
+                    <div id="carousel-controls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active ">
+                              <div class="slider d-flex flex-column justify-content-center align-items-center">
+                                <div class="profile-wrapper">
+                                    <img src="{% static 'imgs/mike.jpg' %}" alt="Mike Price" class="img-fluid">
+                                </div>
+                                <h3 class="mt-3 mb-2">Mike Price</h3>
+                                <p class="px-3 text-center">
+                                    I am Dr. Mike Price and I wanted something simple, beautiful and easy to use when posting articles and photos on Mike Price Photography 
+                                    web page.  Brian not only made it easy for me to use, but also did the same for those who would access the page. It is simple, easy to move 
+                                    around on and very organized.  It will be very convenient and effortless for anyone to navigate. I would like to thank Brian Oliver for his 
+                                    brilliant work.  He is very kind and a pleasure to work with.  The web page is even better than I thought it would end up being. Thank you 
+                                    Brian. 
+                                </p>
+                              </div>
+                          </div>
+                          <div class="carousel-item ">
+                              <div class="slider d-flex flex-column justify-content-center align-items-center">
+                                <div class="profile-wrapper">
+                                    <img src="{% static 'imgs/isaac.jpeg' %}" alt="Isaac Slatten" class="img-fluid">
+                                </div>
+                                <h3 class="mt-3 mb-2">Isaac Slatten</h3>
+                                <p class="px-3 text-center">
+                                    Brian did an amazing job with making a website for me. I needed something for my barbering business, and he did an outstanding job. 
+                                    A whole booking/ scheduling system was made, and the best part is that I’m able to have control over what days and times are open for 
+                                    appointments.
+                                </p>
+                              </div>
+                          </div>
+                      
+                        </div>
+                        <a class="carousel-control-prev text-dark" href="#carousel-controls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-dark" href="#carousel-controls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section id="contact" class="mb-5">
         <div class="container">
             <div class="row">
                 <h1 class="mx-auto mb-5 display-4">Contact Me</h1>
-                <div class="col-sm-12 d-flex justify-content-around align-items-center bg-dark position-relative">
+                <div class="col-sm-12 d-flex justify-content-around align-items-center position-relative">
                     <h1 class="text-white">Say, Hello!</h1>
                     <span class="text-white email">oliverwebdevelopment2020@gmail.com</span>
                     <button type='button' class="btn btn-primary text-white" data-toggle="modal" data-target="#staticBackdrop">Say, Hello</button>
                 </div>
             </div>
         </div>
+        {% include 'partials/_contact-modal.html' with form=form %}
     </section>
-    {% if messages %}
-        {% for message in messages %}
-        <div class="alert {{ message.tags }}" role="alert">
-            {{ message }}
-        </div>
-        {% endfor %}
-    {% endif %}
+</main>
 
-{% include 'partials/_contact-modal.html' with form=form %}
 {% include 'partials/_footer.html' %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block scripts %}

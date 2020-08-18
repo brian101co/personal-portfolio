@@ -1,7 +1,6 @@
-body {
-    font-family: 'Nunito', sans-serif;
-}
-
+/*************************************** 
+             HERO SECTION
+****************************************/
 #header {
     height: 100vh;
     margin-top: -3rem;
@@ -11,19 +10,16 @@ body {
     justify-content: center;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
-    /* background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
+    /* TRYING OUT DIFFERENT HERO SECTION BACKGROUNDS
+    background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.navbar {
-    background-color:#385a7b !important;
-}
-
 .highlight {
-    color: rgb(138, 214, 204);
+    color: #8ad6cc;
 }
 
 .lead {
@@ -31,25 +27,13 @@ body {
     text-shadow: 2px 2px 2px #333;
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #f77171;
-    border-color: #f77171;
-}
-
-.nav-item .btn-outline-primary {
-    border-color: #f77171;
-    color: #f77171 !important;
-}
-
-.btn-outline-primary:hover,
-.btn-outline-primary:focus,
-.btn-outline-primary:not(:disabled):not(.disabled):active {
-    background-color: #f77171;
-    border-color: #f77171;
-    color: white !important;
+.sub-title {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    color: rgb(248, 248, 248);
+    border-left: solid 5px #f77171;
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .fa-long-arrow-right {
@@ -64,30 +48,19 @@ body {
     display: inline-block;
     width: 100px;
 }
+/*************************************** 
+            END HERO SECTION
+****************************************/
 
-.link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #f77171;
-    transition: width 0.25s ease;
-}
-
-.link:hover::after {
-    width: 100%;
-}
-
+/*************************************** 
+   MY SKILLS AND SPECIALIZATION SECTION
+****************************************/
 #skills {
     margin-top: 5rem;
 }
 
 #skills .tech-title {
     font-size: 2rem;
-}
-
-.content {
-    max-width: 400px;
 }
 
 #specialization h5 {
@@ -103,10 +76,6 @@ body {
     border-bottom-right-radius: 30px;
 }
 
-#portfolio {
-    background: whitesmoke;
-}
-
 .color-line {
     position: absolute;
     top: 0;
@@ -117,7 +86,7 @@ body {
 }
 
 .first {
-    background-color: #ffa375;
+    background-color: #8ad6cc;
 }
 
 .second {
@@ -126,6 +95,16 @@ body {
 
 .third {
     background-color: #457B9D;
+}
+/*************************************** 
+    END MY SKILLS AND SPECIALIZATION
+****************************************/
+
+/*************************************** 
+            PORTFOLIO SECTION
+****************************************/
+#portfolio {
+    background: whitesmoke;
 }
 
 .card-link {
@@ -142,6 +121,39 @@ body {
     object-fit: cover;
 }
 
+.badge {
+    background-color: #F0F0F0;
+    color: black;
+    font-weight: 400;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-cta {
+    width: max-content;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.custom-card {
+    border-bottom-right-radius: 30px;
+}
+/*************************************** 
+            END PORTFOLIO
+****************************************/
+
+/*************************************** 
+                 WHY ME
+****************************************/
 .list-group-item {
     border: 1px solid rgba(0,0,0,.125) !important;
     border-radius: 4px !important;
@@ -166,39 +178,25 @@ body {
     justify-content: center;
     align-items: center;
 }
+/*************************************** 
+            END WHY ME 
+****************************************/
 
-.sub-title {
-    font-size: 1.75rem;
-    line-height: 1.5;
-    color: rgb(248, 248, 248);
-    border-left: solid 5px #f77171;
-    padding-left: 1.5rem;
-    margin-left: 0.5rem;
-}
-
+/*************************************** 
+            CONTACT SECTION
+****************************************/
 #contact .col-sm-12 {
     border-bottom-right-radius: 65px;
     padding: 5rem 3rem;
+    background-color: #385a7b;
 }
+/*************************************** 
+           END CONTACT SECTION 
+****************************************/
 
-.alert {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-
-.text-off-white {
-    color: rgb(245, 245, 245) !important;
-}
-
-.badge {
-    background-color: #8ad6cc;
-}
-
-.custom-card {
-    border-bottom-right-radius: 30px;
-}
-
+/*************************************** 
+           MOBILE DEVICE STYLES 
+****************************************/
 @media(max-width: 500px ) {
     #contact .col-sm-12 {
         flex-direction: column;
@@ -242,9 +240,19 @@ body {
         text-align: center;
     }
 }
+/*************************************** 
+            END MOBILE 
+****************************************/
+
+/*************************************** 
+            TABLET STYLES 
+****************************************/
 
 @media(max-width: 768px ) {
     #specialization h5 {
         font-size: 1.6rem;
     }
 }
+/*************************************** 
+            END TABLET 
+****************************************/

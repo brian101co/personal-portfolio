@@ -1,4 +1,5 @@
 {% load compress %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,8 @@
     <link type="text/css" charset="utf-8" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     {% compress css %}
-        {% block styles %}{% endblock %} 
+        <link rel="stylesheet" href="{% static 'css/global.css' %}"> 
+        {% block styles %}{% endblock %}
     {% endcompress %}
     <title>{% block title %}{% endblock %}</title>
 </head>

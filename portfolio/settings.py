@@ -22,7 +22,7 @@ LOGOUT_URL = 'account:logout'
 # Application definition
 
 INSTALLED_APPS = [
-     'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'account',
     'blog',
     'jobs',
+    'pages',
     'crispy_forms',
     "taggit",
     'django_comments_xtd',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'compressor',
     'imagekit',
     'django_quill',
+    'mathfilters',
 ]
 
 COMMENTS_APP = 'django_comments_xtd'
