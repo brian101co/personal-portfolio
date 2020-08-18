@@ -190,12 +190,12 @@
     font-weight: bold;
 }
 
-.img-wrapper {
+.card-img-wrapper {
     overflow: hidden;
     height: 250px;
 }
 
-.img-wrapper img {
+.card-img-wrapper img {
     -o-object-fit: cover;
        object-fit: cover;
     -o-object-position: center;

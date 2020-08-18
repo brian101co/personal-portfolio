@@ -127,7 +127,7 @@
                 {% for job in jobs %}
                     <div class="card custom-card" style="width: 21rem;" id="{{ job.slug }}">
                         {% if job.image %}
-                        <div class="img-wrapper">
+                        <div class="card-img-wrapper">
                             <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.title }}">
                         </div>
                         {% endif %}
