@@ -12,7 +12,7 @@ Portfolio Projects | Brian Oliver | OWDevelopment
 
 {% block content %}
 <header>
-    {% include 'partials/_secondary-navbar.html' %}
+    {% include 'partials/_secondary-navbar.html' with urls=urls %}
 </header>
 
 <main>
@@ -22,7 +22,7 @@ Portfolio Projects | Brian Oliver | OWDevelopment
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    {% for project in object_list %}
+                    {% for project in jobs %}
                     <article class="card mb-3 mx-auto" style="max-width: 840px;">
                         <div class="row no-gutters">
                           <div class="col-md-4 col-lg-5">
