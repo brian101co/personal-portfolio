@@ -13,8 +13,12 @@ class Job(models.Model):
     featured = models.BooleanField(default=False)
     testimonial = models.TextField(blank=True)
     reviewer = models.CharField(max_length=120)
+    created = models.DateField(blank=True)
 
     tags = TaggableManager()
+
+    class Meta:
+        ordering = ('-created',)
     
     def __str__(self):
         return self.title

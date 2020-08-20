@@ -6,7 +6,7 @@ class JobAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = [
         (None, {
-            'fields': ('slug', 'tags')
+            'fields': ('slug', 'tags', 'created')
         }),
         ('Project Details', {
             'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured')
