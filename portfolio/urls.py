@@ -2,6 +2,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from .sitemap import StaticViewSitemap, BlogPostSitemap, ProjectSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'blog': BlogPostSitemap,
+    'project': ProjectSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,6 +17,7 @@ urlpatterns = [
     path('comments/', include('django_comments_xtd.urls')),
     path('account/', include('account.urls', namespace='account')),
     path('portfolio/', include('pages.urls', namespace='portfolio')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', include('jobs.urls', namespace='jobs')),
 ]
 
