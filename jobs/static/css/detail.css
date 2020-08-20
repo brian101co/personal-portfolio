@@ -52,6 +52,12 @@ main {
     font-weight: bold;
 }
 
+.blockquote {
+    border-left: var(--primary-color) solid 5px;
+    padding-left: 1rem;
+    position: relative;
+}
+
 .badge {
     background-color: #F0F0F0;
     color: black;

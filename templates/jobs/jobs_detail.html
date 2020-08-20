@@ -24,7 +24,14 @@ Job | {{ job.title }}
                     {% autoescape off %}
                     <p>{{ job.body|linebreaks }}</p>
                     {% endautoescape %}
-                    <p>
+                    {% if job.testimonial %}
+                    <h2 class="mb-3">Testimonial</h2>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"{{ job.testimonial }}"</p>
+                        <footer class="blockquote-footer"><cite class="{{ job.reviewer }}">{{ job.reviewer }}</cite></footer>
+                    </blockquote>
+                    {% endif %}
+                    <p class="mt-4">
                         <strong>Technologies:</strong>
                         {% for tag in job.tags.all %}
                         <span class="badge badge-pill">{{ tag }}</span>
@@ -33,6 +40,7 @@ Job | {{ job.title }}
                     <div class="d-flex mt-4">
                         <a href="{{ job.site_url }}" class="btn btn-primary mr-2">Live Site</a>
                     </div>
+                    
                 </main>
             </div>
             <div class="col-lg-4">
