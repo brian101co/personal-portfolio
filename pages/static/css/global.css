@@ -11,7 +11,8 @@
 :root {
     /* --primary-color:#f77171; */
     --primary-color:#f85252;
-    --secondary-color: #426b94;
+    --secondary-color: #000733;
+    /* --secondary-color: #426b94; */
     --accent-color: #8ad6cc;
     --accent-color-secondary: #E63946;
     --accent-color-tertiary: #457B9D;
@@ -64,6 +65,16 @@ body {
     background-color: var(--primary-color, #f77171);
     border-color: var(--primary-color, #f77171);
     color: white !important;
+}
+
+.navbar-brand {
+    height: auto;
+    width: 160px;
+}
+
+.navbar-brand img {
+    width: 100%;
+    height: auto;
 }
 
 .link {

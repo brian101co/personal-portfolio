@@ -1,7 +1,9 @@
-{% load job_tags %}
+{% load job_tags static %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">Oliver Web Development</a>
+        <a class="navbar-brand" href="{% url 'jobs:job-list' %}">
+          <img src="{% static 'imgs/logo.svg' %}" alt="Oliver Web Development">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
