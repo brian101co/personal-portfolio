@@ -347,10 +347,19 @@
 /*************************************** 
             TABLET STYLES 
 ****************************************/
+@media(max-width: 1024px ) {
+    #specialization h5 {
+        font-size: 2.2rem;
+    }
+}
 
-@media(max-width: 768px ) {
+@media(max-width: 834px ) {
     #specialization h5 {
         font-size: 1.6rem;
+    }
+
+    #whyme h1 {
+        font-size: 3rem;
     }
 }
 /*************************************** 
