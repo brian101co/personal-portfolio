@@ -9,10 +9,8 @@
              BASE STYLES
 ****************************************/
 :root {
-    /* --primary-color:#f77171; */
     --primary-color:#f85252;
     --secondary-color: #000733;
-    /* --secondary-color: #426b94; */
     --accent-color: #8ad6cc;
     --accent-color-secondary: #E63946;
     --accent-color-tertiary: #457B9D;
@@ -51,7 +49,7 @@ body {
              NAVBAR STYLES
 ****************************************/
 .navbar {
-    background-color: var(--secondary-color, #385a7b) !important;
+    background-color: var(--secondary-color, #000733) !important;
 }
 
 .nav-item .btn-outline-primary {
