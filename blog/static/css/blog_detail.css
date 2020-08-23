@@ -18,6 +18,13 @@ code {
     padding: 2px 5px 2px 5px;
     border-radius: 4px;
 }
+
+.blockquote {
+    border-left: var(--primary-color) solid 5px;
+    padding-left: 1rem;
+    position: relative;
+}
+
 /*************************************** 
             END PAGE DEFAULTS
 ****************************************/

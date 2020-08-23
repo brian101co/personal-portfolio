@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre').forEach((block) => {
     hljs.highlightBlock(block);
   });
+
+  document.querySelectorAll('blockquote').forEach(quote => {
+      quote.classList.add('blockquote');
+  });
 });
 </script>
 {% endblock %}
