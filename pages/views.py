@@ -16,3 +16,4 @@ class PortfolioList(View):
         return render(request, 'pages/portfolio-page.html', context=context)
 
 
+

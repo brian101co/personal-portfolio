@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from django_quill.fields import QuillField
 
 class Job(models.Model):
     title = models.CharField(max_length=200)
@@ -8,13 +9,14 @@ class Job(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     summary = models.TextField()
     body = models.TextField()
+    # main_content = QuillField()
     site_url = models.CharField(max_length=150)
     code_url = models.CharField(max_length=150)
     featured = models.BooleanField(default=False)
     testimonial = models.TextField(blank=True)
     reviewer = models.CharField(max_length=120)
     created = models.DateField(blank=True)
-
+    
     tags = TaggableManager()
 
     class Meta:

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Sign Out | Oliver Web Development
+{% endblock %}
+
+{% block styles %}
+<style>
+    .login-btn {
+        width: 30%;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include 'partials/_secondary-navbar.html' %}
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-4">
+                <h1 class="">See Ya Later!</h1>
+                <h2 class="subtitle h6 text-muted mb-4">Sign-in anytime to check your projects progress and view your account details.</h2>
+                <form method="post" class="d-flex flex-column">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button class="btn btn-primary login-btn" type="submit">Sign Out</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include 'partials/_secondary-footer.html' %}
+
+{% endblock %}

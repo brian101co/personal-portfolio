@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Sign In | Oliver Web Development
+{% endblock %}
+
+{% block styles %}
+<style>
+    .login-btn {
+        width: 60%;
+        align-self: center;
+    }
+    .extra-auth-links {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include 'partials/_secondary-navbar.html' %}
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mb-4">
+                <h1 class="text-center">Welcome Back</h1>
+                <h2 class="subtitle h6 text-muted text-center mb-4">Signin to check your account details and see your project process.</h2>
+                <form method="post" class="d-flex flex-column">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button class="btn btn-primary login-btn" type="submit">Sign In</button>
+                </form>
+                <div class="extra-auth-links">
+                    <a class="reset-pass" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+                    <a class="reset-pass" href="{% url 'account_signup' %}">Don't Have An Account?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include 'partials/_secondary-footer.html' %}
+
+{% endblock %}

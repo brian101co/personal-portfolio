@@ -15,9 +15,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.oliverwebdevelopment.com']
 
-LOGIN_REDIRECT_URL = 'account:dashboard'
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
+LOGIN_REDIRECT_URL = '/account/dashboard/'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
 
 # Application definition
 
@@ -31,10 +31,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'account',
+
+    # Custom Apps
     'blog',
     'jobs',
     'pages',
+
+    # 3rd Party Apps
     'crispy_forms',
     "taggit",
     'django_comments_xtd',
@@ -44,6 +47,10 @@ INSTALLED_APPS = [
     'imagekit',
     'django_quill',
     'mathfilters',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    
 ]
 
 COMMENTS_APP = 'django_comments_xtd'
@@ -52,10 +59,10 @@ COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
                      b"Aequam memento rebus in arduis servare mentem.")
 
 # Source mail address used for notifications.
-COMMENTS_XTD_FROM_EMAIL = "noreply@example.com"
+COMMENTS_XTD_FROM_EMAIL = "noreply@oliverwebdevelopment.com"
 
 # Contact mail address to show in messages.
-COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@example.com"
+COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@oliverwebdevelopment.com"
 
 SITE_ID = 1
 
@@ -193,6 +200,19 @@ QUILL_CONFIGS = {
         }
     }
 }
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 try:
     from .local_settings import *
