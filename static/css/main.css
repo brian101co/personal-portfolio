@@ -1,25 +1,46 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 15 version
+*/
+
 /*************************************** 
              HERO SECTION
 ****************************************/
 #header {
     height: 100vh;
     margin-top: -3rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.6))),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
+    background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80');
-    /* TRYING OUT DIFFERENT HERO SECTION BACKGROUNDS
-    background: linear-gradient(-45deg, rgba(138, 214, 204, 0.8), rgb(138, 214, 204, 0.8)),
-                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .highlight {
-    color: #8ad6cc;
+    color: var(--primary-color, #8ad6cc);
 }
 
 .lead {
@@ -31,17 +52,23 @@
     font-size: 1.75rem;
     line-height: 1.5;
     color: rgb(248, 248, 248);
-    border-left: solid 5px #f77171;
+    border-left: solid 5px var(--primary-color, #f77171);
     padding-left: 1.5rem;
     margin-left: 0.5rem;
 }
 
 .fa-long-arrow-right {
+    -webkit-transition: -webkit-transform 0.2s ease-in;
+    transition: -webkit-transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
     transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
 }
 
 .btn-primary:hover .fa-long-arrow-right {
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
 }
 
 .icon {
@@ -68,8 +95,14 @@
 }
 
 #specialization .col-sm-12 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    align-items: stretch;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
 }
 
 #specialization .card {
@@ -82,19 +115,20 @@
     right: 0;
     height: 5px;
     width: 65%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
 }
 
 .first {
-    background-color: #8ad6cc;
+    background-color: var(--accent-color, #8ad6cc);
 }
 
 .second {
-    background-color: #E63946;
+    background-color: var(--accent-color-secondary, #E63946);
 }
 
 .third {
-    background-color: #457B9D;
+    background-color: var(--accent-color-tertiary, #457B9D);
 }
 /*************************************** 
     END MY SKILLS AND SPECIALIZATION
@@ -107,10 +141,6 @@
     background: whitesmoke;
 }
 
-.card-link {
-    color: #ffa375;
-}
-
 .img-wrapper {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 35px;
@@ -118,7 +148,8 @@
 }
 
 .img-wrapper img {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .badge {
@@ -128,20 +159,46 @@
 }
 
 .card-body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .card-cta {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 }
 
 .card-text {
-    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 
 .card-title {
     font-weight: bold;
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    height: 250px;
+}
+
+.card-img-wrapper img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    height: 100%;
+    width: 100%;
 }
 
 .custom-card {
@@ -149,6 +206,29 @@
 }
 /*************************************** 
             END PORTFOLIO
+****************************************/
+
+/*************************************** 
+              TESTIMONIALS
+****************************************/
+#testimonials {
+    background-color: whitesmoke;
+}
+
+.profile-wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+}
+
+.profile-wrapper img {
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+/*************************************** 
+            END TESTIMONIALS
 ****************************************/
 
 /*************************************** 
@@ -169,14 +249,24 @@
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     border-top-right-radius: 6px;
+    background: -o-linear-gradient(45deg,rgb(230, 57, 70), #ffa375);
     background: linear-gradient(45deg,rgb(230, 57, 70), #ffa375);
     position: absolute;
     top: -1rem;
     left: -1rem;
     color: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 /*************************************** 
             END WHY ME 
@@ -188,7 +278,7 @@
 #contact .col-sm-12 {
     border-bottom-right-radius: 65px;
     padding: 5rem 3rem;
-    background-color: #385a7b;
+    background-color: var(--secondary-color, #000733);
 }
 /*************************************** 
            END CONTACT SECTION 
@@ -199,7 +289,11 @@
 ****************************************/
 @media(max-width: 500px ) {
     #contact .col-sm-12 {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .email {
@@ -229,7 +323,10 @@
     }
 
     #header .btn {
-        align-self: center !important;
+        -webkit-align-self: center !important;
+            -ms-flex-item-align: center !important;
+                    -ms-grid-row-align: center !important;
+                align-self: center !important;
     }
 
     .specializing {
@@ -247,12 +344,22 @@
 /*************************************** 
             TABLET STYLES 
 ****************************************/
+@media screen and (max-width: 1024px ) {
+    #specialization h5 {
+        font-size: 2.2rem;
+    }
+}
 
-@media(max-width: 768px ) {
+@media screen and (max-width: 834px ) {
     #specialization h5 {
         font-size: 1.6rem;
+    }
+
+    #whyme h1 {
+        font-size: 3rem;
     }
 }
 /*************************************** 
             END TABLET 
 ****************************************/
+

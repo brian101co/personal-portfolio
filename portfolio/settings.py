@@ -15,7 +15,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.oliverwebdevelopment.com']
 
-LOGIN_REDIRECT_URL = '/account/dashboard/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'blog',
     'jobs',
     'pages',
+    'dashboard',
 
     # 3rd Party Apps
     'crispy_forms',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'imagekit',
     'django_quill',
     'mathfilters',
+    'directmessages',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -75,6 +77,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -158,7 +161,11 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_ROOT = STATIC_ROOT
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

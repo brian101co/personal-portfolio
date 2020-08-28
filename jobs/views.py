@@ -74,7 +74,3 @@ class HireMeView(View):
         else:
             messages.error(request, 'Message failed to send. Please make sure to fill out all the form fields.', extra_tags='alert-error')
             return redirect('jobs:job-list')
-
-class DashboardVeiw(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'account/dashboard.html')

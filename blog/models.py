@@ -15,7 +15,7 @@ STATUS_CHOICES = (
 )   
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     profile_image_thumbnail = ProcessedImageField(
         blank=True,
         upload_to='profile-images/',
@@ -26,7 +26,6 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
     location = models.CharField(max_length=150, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.display_name}'s Profile"

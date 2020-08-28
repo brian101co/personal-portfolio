@@ -29,4 +29,8 @@ $('a[href*="#"]')
     setTimeout(() => {
       $('.alert').remove()
     }, 3000)
+
+    var height = $('.carousel-inner:first-child').outerHeight()
+
+    $('.carousel-inner .slider').css("height", height.toString());
 })

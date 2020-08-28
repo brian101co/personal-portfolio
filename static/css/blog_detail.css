@@ -1,7 +1,37 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 15 version
+*/
+
+/*************************************** 
+             PAGE DEFAULTS
+****************************************/
 body {
     background: whitesmoke;
 }
 
+code {
+    background-color: #E8E8E8 !important;
+    color: black !important;
+    padding: 2px 5px 2px 5px;
+    border-radius: 4px;
+}
+
+.blockquote {
+    border-left: var(--primary-color) solid 5px;
+    padding-left: 1rem;
+    position: relative;
+}
+
+/*************************************** 
+            END PAGE DEFAULTS
+****************************************/
+
+/*************************************** 
+            PROFILE CARD
+****************************************/
 .circle {
     height: 100px;
     width: 100px;
@@ -11,17 +41,26 @@ body {
 
 .circle img {
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
 }
+/*************************************** 
+            END PROFILE CARD
+****************************************/
 
+/*************************************** 
+            SIMILAR PROJECTS
+****************************************/
 .post-link {
     display: inline-block;
     background-color: whitesmoke;
 }
 
 .post-link:hover {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    -webkit-box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
     text-decoration: none;
 }
 
@@ -31,9 +70,16 @@ body {
 }
 
 .read-more {
-    color: #ffa375;
+    color: var(--primary-color, #f77171);
 }
 
 .read-more:hover {
-    color: #ffa375;
+    color: var(--primary-color, #f77171);
 }
+
+#similar-projects .card-title {
+    font-weight: bold;
+}
+/*************************************** 
+           END SIMILAR PROJECTS
+****************************************/
