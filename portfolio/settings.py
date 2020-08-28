@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 3rd Party Apps
     'crispy_forms',
     "taggit",
+    # BLOG COMMENTS
     'django_comments_xtd',
     'django_comments',
     'debug_toolbar',
@@ -49,9 +50,12 @@ INSTALLED_APPS = [
     'django_quill',
     'mathfilters',
     'directmessages',
+    # AUTH 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # FORM SECURITY
+    'honeypot',
     
 ]
 
@@ -220,6 +224,9 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
+# HONEYPOT FORM SECURITY SETTINGS
+HONEYPOT_FIELD_NAME = " " # left blank to not conflict with Google Autopopulate feature.
 
 try:
     from .local_settings import *

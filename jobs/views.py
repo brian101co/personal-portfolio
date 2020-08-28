@@ -5,6 +5,10 @@ from .forms import ContactForm
 from django.core.mail import send_mail
 from django.contrib import messages
 
+from django.utils.decorators import method_decorator
+from honeypot.decorators import check_honeypot
+
+@method_decorator(check_honeypot, name='dispatch')
 class JobListView(View):
     def get_all_jobs(self):
         return Job.objects.all()
@@ -49,6 +53,7 @@ class JobDetailView(View):
         }
         return render(request, 'jobs/jobs_detail.html', context=context)
 
+@method_decorator(check_honeypot, name='dispatch')
 class HireMeView(View):
     def get(self, request):
         form = ContactForm()
