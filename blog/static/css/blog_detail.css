@@ -83,3 +83,12 @@ code {
 /*************************************** 
            END SIMILAR PROJECTS
 ****************************************/
+.ql-syntax {
+    padding: 1.75em;
+    background: #011627;
+    color: #d6deeb;
+    border-radius: 8px;
+}
+.card-text {
+    overflow-x: auto;
+}
