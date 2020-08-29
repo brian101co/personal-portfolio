@@ -36,7 +36,7 @@ body {
     color: white !important;
 }
 
-.alert {
+.alert-success {
     position: fixed;
     bottom: 0;
     right: 0;

@@ -9,7 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="." method="POST">
+          <form action="." method="POST" class="contact-modal">
             {% csrf_token %}
             {% render_honeypot_field %}
             {{ form|crispy }}

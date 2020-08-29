@@ -1,3 +1,7 @@
+import requests
+import json
+from django.http import JsonResponse
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from .models import Job
@@ -79,3 +83,12 @@ class HireMeView(View):
         else:
             messages.error(request, 'Message failed to send. Please make sure to fill out all the form fields.', extra_tags='alert-error')
             return redirect('jobs:job-list')
+
+class VerifyEmail(View):
+    ''' Verifies and Validates Emails for the SayHello Contact Form '''
+    def get(self, request, email):
+        url = f'http://apilayer.net/api/check?access_key=6a8ff8af2d3092fa2028a428485af913&email={email}&smtp=1&format=1'
+        response = requests.get(url)
+        data = json.dumps(response.text)
+        return JsonResponse(data, safe=False)
+        
