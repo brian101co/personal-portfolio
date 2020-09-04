@@ -4,7 +4,7 @@ from jobs.models import Job
 
 class PortfolioList(View):
     def get(self, request):
-        jobs = Job.objects.all()
+        jobs = Job.objects.filter(practice=False)
         context = {
             'jobs': jobs,
              'urls': {

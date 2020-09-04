@@ -9,7 +9,7 @@ class JobAdmin(admin.ModelAdmin):
             'fields': ('slug', 'tags', 'created')
         }),
         ('Project Details', {
-            'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured')
+            'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured', 'practice')
         }),
         ('Testimonial', {
             'fields': ('testimonial', 'reviewer')

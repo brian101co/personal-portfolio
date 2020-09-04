@@ -57,7 +57,7 @@
     margin-left: 0.5rem;
 }
 
-.fa-long-arrow-right {
+.main-cta svg {
     -webkit-transition: -webkit-transform 0.2s ease-in;
     transition: -webkit-transform 0.2s ease-in;
     -o-transition: transform 0.2s ease-in;
@@ -65,7 +65,7 @@
     transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
 }
 
-.btn-primary:hover .fa-long-arrow-right {
+.btn-primary:hover svg {
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
             transform: rotate(90deg);

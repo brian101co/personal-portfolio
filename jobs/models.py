@@ -16,6 +16,7 @@ class Job(models.Model):
     testimonial = models.TextField(blank=True)
     reviewer = models.CharField(max_length=120)
     created = models.DateField(blank=True)
+    practice = models.BooleanField(default=False)
     
     tags = TaggableManager()
 
