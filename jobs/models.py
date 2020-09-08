@@ -10,9 +10,9 @@ class Job(models.Model):
     slug = models.SlugField()
     image = models.ImageField(upload_to='images/', blank=True)
     image_thumbnail = ImageSpecField(source='image',
-                                     processors=[ResizeToFill(400, 400)],
+                                     processors=[ResizeToFill(250, 300)],
                                      format='JPEG',
-                                     options={'quality': 95}
+                                     options={'quality': 85}
     )
     summary = models.TextField()
     body = models.TextField()
