@@ -193,8 +193,6 @@
 }
 
 .card-img-wrapper img {
-    -o-object-fit: cover;
-       object-fit: cover;
     -o-object-position: center;
        object-position: center;
     height: 100%;
