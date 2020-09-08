@@ -138,7 +138,7 @@
                     <div class="card custom-card" style="width: 21rem;" id="{{ job.slug }}">
                         {% if job.image %}
                         <div class="card-img-wrapper">
-                            <img src="{{ job.image.url }}" class="card-img-top" alt="{{ job.title }}">
+                            <img src="{{ job.image_thumbnail.url }}" class="card-img-top" alt="{{ job.title }}">
                         </div>
                         {% endif %}
                         <div class="card-body">
