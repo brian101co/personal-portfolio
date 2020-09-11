@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.oliverwebdevelopment.com']
+ALLOWED_HOSTS = ['www.oliverwebdevelopment.com', 'oliverwebdevelopment.com', '167.99.234.72']
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_URL = '/login/'
@@ -110,11 +110,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'brian101co$default',
-        'USER': 'brian101co',
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': 'brian101co.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'oliverwebdev',
+	'USER': 'oliverwebdevadmin',
+	'PASSWORD': os.getenv("DB_PASS"),
+	'HOST': 'localhost',
+	'PORT': '',
     }
 }
 
@@ -179,9 +180,9 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.getenv("SENDGRID_API_KEY")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -227,6 +228,22 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
 # HONEYPOT FORM SECURITY SETTINGS
 HONEYPOT_FIELD_NAME = " " # left blank to not conflict with Google Autopopulate feature.
+
+LOGGING = {                                                                                                                 
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'logfile': {
+            'class': 'logging.FileHandler',
+            'filename': 'server_oliverwebdev.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+        },
+    },
+}
 
 try:
     from .local_settings import *

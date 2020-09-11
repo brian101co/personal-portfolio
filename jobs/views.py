@@ -35,7 +35,7 @@ class JobListView(View):
             cd = form.cleaned_data
             subject = cd['subject']
             message = f"Hey, my name is { cd['full_name'] }.\n\n { cd['message'] }\n\n My email is { cd['email'] }"
-            send_mail(subject, message, cd['email'], ['oliverwebdevelopment2020@gmail.com'])
+            send_mail(subject, message, 'brian@oliverwebdevelopment.com', ['brian@oliverwebdevelopment.com'])
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
             return redirect('jobs:job-list')
         else:
@@ -77,7 +77,7 @@ class HireMeView(View):
             cd = form.cleaned_data
             subject = cd['subject']
             message = f"Hey, my name is { cd['full_name'] }.\n\n { cd['message'] }\n\n My email is { cd['email'] }"
-            send_mail(subject, message, cd['email'], ['oliverwebdevelopment2020@gmail.com'])
+            send_mail(subject, message, 'brian@oliverwebdevelopment.com', ['brian@oliverwebdevelopment.com'])
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
             return redirect('jobs:job-list')
         else:
