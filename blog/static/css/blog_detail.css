@@ -84,6 +84,10 @@ code {
 .main-content > p {
     margin: 0;
 }
+
+.main-content pre {
+    margin: 0;
+}
 /*************************************** 
            END SIMILAR PROJECTS
 ****************************************/
