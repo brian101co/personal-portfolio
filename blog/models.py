@@ -40,8 +40,11 @@ def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 
 class PostManager(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status='P')
+    def get_queryset(self, *args, **kwargs):
+        return super().get_queryset(*args, **kwargs)
+
+    def posts(self):
+        return self.get_queryset().filter(status='P')
 
 class Post(models.Model):
     title = models.CharField(max_length=200)

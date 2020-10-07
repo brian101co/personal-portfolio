@@ -16,31 +16,32 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-sm-12 col-lg-8">
-            <main class="bg-white p-4 shadow-sm rounded">
+            <main class="bg-white p-4 shadow-sm rounded main-content">
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded">
+                <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded">
                 {% endif %}
-                <h1>{{ post.title }}</h1>
+                <h1 class="mb-2">{{ post.title }}</h1>
                 {% get_comment_count for post as comment_count %}
-                <div class="py-3 d-flex">
+                <div class="d-flex mb-4">
                     <p class="mb-0 mr-2">
                         Published {{ post.publish|date:"F j, Y" }}
                     </p>
                     <p class="m-0">
                         {{ comment_count }} comment{{ comment_count|pluralize }}
-                        ha{{ comment_count|pluralize:"s,ve" }} been posted.
                     </p>
                 </div>
-                <p class="card-text">
-                    {{ post.body.html|safe }}
-                </p>
+
+                {{ post.body.html|safe }}
+
             </main>
         </div>
         <div class="col-sm-12 col-lg-4 align-self-start">
             <div class="bg-white p-4 shadow-sm rounded mt-4 mt-lg-0">
                 <aside>
                     <div class="author-img circle mx-auto">
+                        {% if post.author.profile.profile_image_thumbnail %}
                         <img src="{{ post.author.profile.profile_image_thumbnail.url }}" alt="profile image" class="img-fluid ">
+                        {% endif %}
                     </div>
                     <h5 class="text-center mt-3">{{ post.author.profile.display_name }}</h5>
                     <p>
@@ -80,7 +81,7 @@
     <div class="row mt-4">
         <div class="col-sm-12">
             <div class="bg-white p-lg-4 shadow-sm rounded">
-                <h3>Comments</h3>
+                <h3 class="px-4 pt-4 p-lg-0">Comments</h3>
                 <hr>
                 {% render_comment_list for post %}
 
@@ -90,7 +91,6 @@
                         {% render_comment_form for post %}
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -104,17 +104,14 @@
 {% block scripts %}
 <script src="{% static 'highlight/highlight.pack.js' %}"></script>
 <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  document.querySelectorAll('pre').forEach((block) => {
-    hljs.highlightBlock(block);
-  });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
 
-  document.querySelectorAll('blockquote').forEach(quote => {
-      quote.classList.add('blockquote');
-  });
-});
+        document.querySelectorAll('blockquote').forEach(quote => {
+            quote.classList.add('blockquote');
+        });
+    });
 </script>
 {% endblock %}
-
-
-

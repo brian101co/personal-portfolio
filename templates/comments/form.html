@@ -4,8 +4,8 @@
 <form method="POST" action="{% comment_form_target %}" class="px-sm-3 px-md-4 px-lg-5">
     {% csrf_token %}
     <fieldset>
-        <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}"/>
-    
+        <input type="hidden" name="next" value="{% url 'comments-xtd-sent' %}" />
+
         <div class="alert alert-danger" data-comment-element="errors" hidden>
         </div>
 
@@ -59,7 +59,7 @@
 
     <div class="row form-group">
         <div class="col-sm-12">
-            <input type="submit" name="post" value="{% trans 'Send' %}" class="btn btn-primary" />
+            <input type="submit" name="post" value="{% trans 'Send' %}" class="btn btn-primary mr-2" />
             <input type="submit" name="preview" value="{% trans 'Preview' %}" class="btn btn-secondary" />
         </div>
     </div>

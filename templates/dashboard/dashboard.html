@@ -4,54 +4,63 @@
 {% load crispy_forms_tags %}
 
 {% block styles %}
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-    
-        main {
-            flex: 1;
-        }
+<style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
 
-        .img-container {
-            height: 125px;
-            width: 125px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
+    main {
+        flex: 1;
+    }
 
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .img-container {
+        height: 125px;
+        width: 125px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
-        .bold {
-            font-weight: 700;
-        }
-        .update {
-            background-color: #d1ecf1;
-        }
-        .message {
-            background-color: whitesmoke;
-        }
-        .conversation {
-            cursor: pointer;
-        }
-        .reciever {
-            background-color: #d1ecf1;
-        }
-        .inbox {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-    </style>
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+
+    .update {
+        background-color: #d1ecf1;
+    }
+
+    .message {
+        background-color: whitesmoke;
+    }
+
+    .message:not(:last-child) {
+        margin-bottom: 0.5rem;
+    }
+
+    .conversation {
+        cursor: pointer;
+    }
+
+    .reciever {
+        background-color: #d1ecf1;
+    }
+
+    .inbox {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+</style>
 {% endblock %}
 
 {% block title %}
-    Dashboard | Oliver Web Development
+Dashboard | Oliver Web Development
 {% endblock %}
 
 {% block content %}
@@ -61,83 +70,83 @@
     <div class="container">
         <h1 class="display-5 mt-4">
             {% if user.profile.display_name %}
-                {{ user.profile.display_name }}'s Dashboard
+            {{ user.profile.display_name }}'s Dashboard
             {% else %}
-                My Dashboard
+            My Dashboard
             {% endif %}
         </h1>
         <hr>
         <div class="row">
-           <div class="col-sm-12 col-md-4">
-              <section>
-                <div class="card">
-                    <div class="img-container mx-auto mt-4">
-                        {% if user.profile.profile_image_thumbnail %}
+            <div class="col-sm-12 col-md-4">
+                <section>
+                    <div class="card">
+                        <div class="img-container mx-auto mt-4">
+                            {% if user.profile.profile_image_thumbnail %}
                             <img src="{{ user.profile.profile_image_thumbnail.url }}" alt="{{ user.profile.display_name }} Profile Image">
-                        {% else %}
-                            <img src="{% static 'imgs/blank-profile-img.jpg' %}" alt="Default Blank Image">
-                        {% endif %}
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title text-center h4">
-                            {% if user.profile.display_name %}
-                                {{ user.profile.display_name }}
                             {% else %}
-                                My Name
+                            <img src="{% static 'imgs/blank-profile-img.jpg' %}" alt="Default Blank Image">
                             {% endif %}
-                      </h5>
-                      {% if user.profile.location %}
-                      <p class="card-text text-center">
-                          {{ user.profile.location }}
-                      </p>
-                      {% endif %}
-                      {% if user.profile.bio %}
-                      <p class="card-text">{{ user.profile.bio }}</p>
-                      {% endif %}
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-center h4">
+                                {% if user.profile.display_name %}
+                                {{ user.profile.display_name }}
+                                {% else %}
+                                My Name
+                                {% endif %}
+                            </h5>
+                            {% if user.profile.location %}
+                            <p class="card-text text-center">
+                                {{ user.profile.location }}
+                            </p>
+                            {% endif %}
+                            {% if user.profile.bio %}
+                            <p class="card-text">{{ user.profile.bio }}</p>
+                            {% endif %}
 
-                      {% if user.profile.display_name %}
-                        <a href="{% url 'update-profile' user.id %}" class="btn btn-primary">Edit</a>
-                      {% else %}
-                        <a href="{% url 'update-profile' user.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
-                      {% endif %}
+                            {% if user.profile.display_name %}
+                            <a href="{% url 'update-profile' user.id %}" class="btn btn-primary">Edit</a>
+                            {% else %}
+                            <a href="{% url 'update-profile' user.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
 
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h5 class="bold">My Conversations</h5>
-                        {% if conversations %}
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="bold">My Conversations</h5>
+                            {% if conversations %}
                             {% for user in conversations %}
-                                <div class="mt-2 conversation">
-                                    <input type="hidden" name="id" value="{{ user.id }}">
-                                    <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
-                                    {% if user.profile.display_name %}
-                                        {{ user.profile.display_name }}
-                                    {% else %}
-                                        {{ user }}
-                                    {% endif %}
-                                </div>
+                            <div class="mt-2 conversation">
+                                <input type="hidden" name="id" value="{{ user.id }}">
+                                <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                {% if user.profile.display_name %}
+                                {{ user.profile.display_name }}
+                                {% else %}
+                                {{ user }}
+                                {% endif %}
+                            </div>
                             {% endfor %}
-                        {% else %}
+                            {% else %}
                             <p>You have no conversations. Send a message to start a new conversation.</p>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
 
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h5 class="card-title bold">Send A Message</h5>
-                        <form class="message-form">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                            <button class="btn btn-primary" type="submit">Send Message</button>
-                        </form>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title bold">Send A Message</h5>
+                            <form class="message-form">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-primary" type="submit">Send Message</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-              </section>
-           </div>
-           <div class="col-sm-12 col-md-8">
+                </section>
+            </div>
+            <div class="col-sm-12 col-md-8">
                 <section class="card p-3">
                     <h1 class="text-center">Project Details</h1>
                     <hr>
@@ -145,7 +154,7 @@
                     <h2 class="h4 card-title bold">{{ project.title }}</h2>
                     <p class="card-text">{{ project.description }}</p>
                     <p class="card-text">
-                       <strong>Project Due:</strong> {{ project.deadline }}
+                        <strong>Project Due:</strong> {{ project.deadline }}
                     </p>
                     <h3 class="h5 card-title bold">Services</h3>
                     <ul class="list-group">
@@ -155,45 +164,45 @@
                     </ul>
 
                     {% empty %}
-                        <p>Looks like you haven't started a project yet. Contact us to start a project. Also check out our home page to learn more about the services we offer and how Oliver Web Development can help your business flourish online. We look forward to working with you.</p>
-                    {% endfor %}  
-                    
+                    <p>Looks like you haven't started a project yet. Contact us to start a project. Also check out our home page to learn more about the services we offer and how Oliver Web Development can help your business flourish online. We look forward to working with you.</p>
+                    {% endfor %}
+
                 </section>
 
                 <section class="card mt-4 p-3">
                     <h1 class="text-center">Project Updates</h1>
                     <hr class="mb-0">
                     {% for project in user.projects.all %}
-                        {% for update in project.updates.all %}
-                        <div class="update rounded p-3 mt-3">
-                            <p>{{ update.update }}</p>
-                            <p class="mb-2">{{ update.author.profile.display_name }}</p>
-                            <p class="mb-0">{{ update.created_at }}</p>
-                        </div>
-                        {% endfor %}
+                    {% for update in project.updates.all %}
+                    <div class="update rounded p-3 mt-3">
+                        <p>{{ update.update }}</p>
+                        <p class="mb-2">{{ update.author.profile.display_name }}</p>
+                        <p class="mb-0">{{ update.created_at }}</p>
+                    </div>
+                    {% endfor %}
 
-                        {% empty %}
-                            <p class="mt-3 text-center">Looks like you don't have any active projects.</p>
+                    {% empty %}
+                    <p class="mt-3 text-center">Looks like you don't have any active projects.</p>
                     {% endfor %}
                 </section>
 
-                
+
                 <section class="card mt-4 p-3">
                     <h1 class="text-center">Messages</h1>
                     <hr>
                     <div class="inbox card p-3 my-1">
-                    {% if conversation %}
+                        {% if conversation %}
                         {% for message in conversation %}
-                        <p class="card-text message p-3">
+                        <p class="message p-3">
                             {{ message }}
                         </p>
                         {% endfor %}
-                    {% else %}
+                        {% else %}
                         <p class="">Send a message to start a conversation or click on one of your active conversations to see your messages.</p>
-                    {% endif %}
+                        {% endif %}
                     </div>
                 </section>
-           </div>
+            </div>
         </div>
     </div>
 </main>

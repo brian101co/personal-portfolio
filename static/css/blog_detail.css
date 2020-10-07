@@ -80,6 +80,10 @@ code {
 #similar-projects .card-title {
     font-weight: bold;
 }
+
+.main-content > p {
+    margin: 0;
+}
 /*************************************** 
            END SIMILAR PROJECTS
 ****************************************/

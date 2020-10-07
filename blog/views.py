@@ -6,7 +6,7 @@ from django.db.models import Count
 
 class BlogListView(View):
     def get(self, request):
-        posts = Post.published.all()
+        posts = Post.published.posts()
         context = {
             'posts': posts,
              'urls': {
@@ -21,7 +21,7 @@ class BlogDetailView(View):
     def get(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
         post_tags_ids = post.tags.values_list('id', flat=True) #list of of tag IDs [1,3,7]
-        similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
+        similar_posts = Post.published.posts().filter(tags__in=post_tags_ids).exclude(id=post.id)
         similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
         context = {
             'post': post,

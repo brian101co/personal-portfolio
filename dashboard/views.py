@@ -59,7 +59,8 @@ class DashboardMessageAPI(LoginRequiredMixin, View):
 class DashboardVeiw(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         form = MessageForm()
-        form.fields['recipient'].queryset = User.objects.filter(username='brianoliver')
+        if not request.user.is_staff or not request.user.is_superuser:
+            form.fields['recipient'].queryset = User.objects.filter(username='brianoliver')
 
         user = User.objects.get(username=request.user.username)
         conversations = Inbox.get_conversations(user)
