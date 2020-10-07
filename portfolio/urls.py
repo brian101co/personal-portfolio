@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from .sitemap import StaticViewSitemap, BlogPostSitemap, ProjectSitemap
+from django.views.generic.base import TemplateView
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -18,6 +19,7 @@ urlpatterns = [
     path('portfolio/', include('pages.urls', namespace='portfolio')),
     path('dashboard/', include('dashboard.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('', include('allauth.urls')),
     path('', include('jobs.urls', namespace='jobs')),
 ]

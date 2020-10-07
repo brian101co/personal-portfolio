@@ -12,7 +12,7 @@ class Job(models.Model):
     image_thumbnail = ImageSpecField(source='image',
                                      processors=[ResizeToFill(300, 250)],
                                      format='JPEG',
-                                     options={'quality': 85}
+                                     options={'quality': 90}
     )
     summary = models.TextField()
     body = models.TextField()

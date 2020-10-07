@@ -93,7 +93,7 @@
                     <div class="card shadow position-relative" style="width: 20rem;">
                         <div class="color-line first"></div>
                         <div class="card-body px-4 py-5">
-                          <h5 class="card-title service">Django Development</h5>
+                          <h5 class="card-title service">Web Development</h5>
                           <p class="card-text">
                               Building secure, scalable, and performant web applications to meet the demands as your business grows online.</p>
                         </div>
@@ -103,7 +103,7 @@
                     <div class="card shadow position-relative" style="width: 20rem;">
                         <div class="color-line second"></div>
                         <div class="card-body px-4 py-5"">
-                          <h5 class="card-title service">Custom <br>Design</h5>
+                          <h5 class="card-title service">Web <br>Design</h5>
                           <p class="card-text">Creating custom responsive designs to make sure your business looks great on all devices and is optimized for mobile devices.</p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                             <span class="badge badge-pill">{{ tag|title }}</span>
                             {% endfor %}
                           </div>
-                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">Learn More</a>
+                          <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">View Project</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -163,7 +163,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="img-wrapper">
-                        <img src="{% static 'imgs/profile.jpg' %}" alt="Brian" class="img-fluid">
+                        <img src="{% static 'imgs/profile.jpg' %}" srcset="{% static 'imgs/profile.jpg' %} 540w, {% static 'imgs/profile_mobile.jpg' %} 345w" sizes="100vw" alt="Brian" class="img-fluid" loading="lazy">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 px-5">
@@ -198,7 +198,7 @@
                           <div class="carousel-item active ">
                               <div class="slider d-flex flex-column justify-content-center align-items-center">
                                 <div class="profile-wrapper">
-                                    <img src="{% static 'imgs/mike.jpg' %}" alt="Mike Price" class="img-fluid">
+                                    <img src="{% static 'imgs/mike.jpg' %}" alt="Mike Price" class="img-fluid" loading="lazy">
                                 </div>
                                 <h3 class="mt-3 mb-2">Mike Price</h3>
                                 <p class="px-3 text-center">
@@ -213,7 +213,7 @@
                           <div class="carousel-item ">
                               <div class="slider d-flex flex-column justify-content-center align-items-center">
                                 <div class="profile-wrapper">
-                                    <img src="{% static 'imgs/isaac.jpeg' %}" alt="Isaac Slatten" class="img-fluid">
+                                    <img src="{% static 'imgs/isaac.jpeg' %}" alt="Isaac Slatten" class="img-fluid" loading="lazy">
                                 </div>
                                 <h3 class="mt-3 mb-2">Isaac Slatten</h3>
                                 <p class="px-3 text-center">
