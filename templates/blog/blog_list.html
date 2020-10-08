@@ -30,7 +30,7 @@ Tutorials | Oliver Web Development
                             </div>
                             {% endif %}
                             <div class="card-body">
-                                <h5 class="card-title">{{ post.title }}</h5>
+                                <h5 class="card-title font-weight-bold">{{ post.title }}</h5>
                                 <p class="card-text">{{ post.summary|truncatewords:40 }}</p>
                                 <hr>
                                 <div class="footer">
@@ -42,7 +42,7 @@ Tutorials | Oliver Web Development
                                         <div class="col-6">
                                             <div class="text-muted">TAGS</div>
                                             {% for tag in post.tags.all %}
-                                            <span>{{ tag }}</span>
+                                            <span>{{ tag|title }}</span>
                                             {% endfor %}
                                         </div>
                                     </div>

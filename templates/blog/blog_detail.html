@@ -26,7 +26,7 @@
                 {% if post.image %}
                 <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded">
                 {% endif %}
-                <h1 class="mb-2">{{ post.title }}</h1>
+                <h1 class="mb-2 main-title">{{ post.title }}</h1>
                 {% get_comment_count for post as comment_count %}
                 <div class="d-flex mb-4">
                     <p class="mb-0 mr-3 d-flex align-items-center">

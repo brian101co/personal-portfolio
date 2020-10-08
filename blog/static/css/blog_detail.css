@@ -88,9 +88,21 @@ code {
 .main-content pre {
     margin: 0;
 }
+
+.main-title > h2,
+.main-title > h3,
+.main-title > h4,
+.main-title > h5,
+.main-title > h6 {
+    color: #000733;
+}
 /*************************************** 
            END SIMILAR PROJECTS
 ****************************************/
+.main-title {
+    color: #000733;
+}
+
 .ql-syntax {
     padding: 1.75em;
     background: #011627;
