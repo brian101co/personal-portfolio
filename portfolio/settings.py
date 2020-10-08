@@ -41,19 +41,23 @@ INSTALLED_APPS = [
     # 3rd Party Apps
     'crispy_forms',
     "taggit",
-    # BLOG COMMENTS
-    'django_comments_xtd',
-    'django_comments',
+    'django_social_share',
     'debug_toolbar',
     'compressor',
     'imagekit',
     'django_quill',
     'mathfilters',
     'directmessages',
+
+    # BLOG COMMENTS
+    'django_comments_xtd',
+    'django_comments',
+   
     # AUTH 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
     # FORM SECURITY
     'honeypot',
     

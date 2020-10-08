@@ -1,8 +1,6 @@
 {% extends 'blog/base.html' %}
 
-{% load static %}
-{% load comments %}
-{% load crispy_forms_tags %}
+{% load static social_share comments crispy_forms_tags %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
@@ -38,9 +36,10 @@
                         {{ comment_count }} comment{{ comment_count|pluralize }}
                     </p>
                 </div>
-
                 {{ post.body.html|safe }}
-
+                <hr>
+                {% post_to_facebook post "Post to Facebook!" %}
+                {% post_to_twitter "{{ post.title }}. Check it out!" post "Post to Twitter" %}
             </main>
         </div>
         <div class="col-sm-12 col-lg-4 align-self-start">
