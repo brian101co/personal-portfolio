@@ -6,6 +6,14 @@
 <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
 {% endblock %}
 
+{% block head %}
+<meta name="description" content="Check out our tutorials on web development, design, and general programming.">
+{% endblock %}
+
+{% block title %}
+<title>Tutorials | Oliver Web Development</title>
+{% endblock %}
+
 {% block content %}
 {% include 'partials/_secondary-navbar.html' with urls=urls %}
 <main>
@@ -16,35 +24,35 @@
                 <div class="col-sm-12 col-md-4">
                     <article class="card">
                         <a href="{{ post.get_absolute_url }}" class="text-body blog-link">
-                        {% if post.image %}
-                        <div class="img-wrapper">
-                            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
-                        </div>
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.summary|truncatewords:40 }}</p>
-                            <hr>
-                            <div class="footer">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="text-muted">AUTHOR</div>
-                                        <div>{{ post.author.profile.display_name|title }}</div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-muted">TAGS</div>
-                                        {% for tag in post.tags.all %}
-                                        <span>{{ tag }}</span>
-                                        {% endfor %}
+                            {% if post.image %}
+                            <div class="img-wrapper">
+                                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                            </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">{{ post.summary|truncatewords:40 }}</p>
+                                <hr>
+                                <div class="footer">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="text-muted">AUTHOR</div>
+                                            <div>{{ post.author.profile.display_name|title }}</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-muted">TAGS</div>
+                                            {% for tag in post.tags.all %}
+                                            <span>{{ tag }}</span>
+                                            {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </a>
                     </article>
                 </div>
                 {% endfor %}
-                </div>
+            </div>
         </div>
     </section>
 </main>
@@ -55,4 +63,3 @@
 {% block scripts %}
 <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
-

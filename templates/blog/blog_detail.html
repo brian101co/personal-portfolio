@@ -9,6 +9,14 @@
 <link rel="stylesheet" href="{% static 'highlight/night-owl.css' %}">
 {% endblock %}
 
+{% block head %}
+<meta name="description" content="{{ post.summary|truncatewords:30 }}">
+{% endblock %}
+
+{% block title %}
+<title>{{ post.title }} | Oliver Web Development</title>
+{% endblock %}
+
 {% block content %}
 <header>
     {% include 'partials/_secondary-navbar.html' with urls=urls %}
@@ -67,7 +75,7 @@
                                 </div>
                                 <p>
                                     {{ post.summary|linebreaks|truncatewords:20 }}
-                                    <a class="read-more" href="{{ post.get_absolute_url }}">Read More</a>
+                                    <a class="read-more" href="{{ post.get_absolute_url }}">Read Article</a>
                                 </p>
                             </div>
                         </article>
