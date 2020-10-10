@@ -133,6 +133,11 @@ code {
   margin: 0.5em
 }
 
+.resp-sharing-button__link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 .resp-sharing-button {
   display: flex;
   flex-wrap: wrap;
