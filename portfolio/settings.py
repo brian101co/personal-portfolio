@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_quill',
     'mathfilters',
     'directmessages',
+   
 
     # BLOG COMMENTS
     'django_comments_xtd',

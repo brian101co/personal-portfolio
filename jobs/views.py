@@ -49,11 +49,6 @@ class JobDetailView(View):
         context = {
             'job': job,
             'similar_jobs': similar_jobs,
-            'urls': {
-                'portfolio_url': Job.get_portfolio_url(),
-                'contact_url': Job.get_contact_url(),
-                'about_url': Job.get_about_url(),
-            },
         }
         return render(request, 'jobs/jobs_detail.html', context=context)
 
@@ -63,11 +58,6 @@ class HireMeView(View):
         form = ContactForm()
         context = {
             'form': form,
-            'urls': {
-                'portfolio_url': Job.get_portfolio_url(),
-                'contact_url': Job.get_contact_url(),
-                'about_url': Job.get_about_url(),
-            },
         }
         return render(request, 'jobs/hire_me.html', context=context)
 

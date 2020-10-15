@@ -9,11 +9,6 @@ class BlogListView(View):
         posts = Post.published.posts()
         context = {
             'posts': posts,
-             'urls': {
-                'portfolio_url': Job.get_portfolio_url(),
-                'contact_url': Job.get_contact_url(),
-                'about_url': Job.get_about_url(),
-            },
         }
         return render(request, 'blog/blog_list.html', context=context)
 
@@ -26,10 +21,5 @@ class BlogDetailView(View):
         context = {
             'post': post,
             'similar_posts':similar_posts,
-             'urls': {
-                'portfolio_url': Job.get_portfolio_url(),
-                'contact_url': Job.get_contact_url(),
-                'about_url': Job.get_about_url(),
-            },
         }
         return render(request, 'blog/blog_detail.html', context=context)

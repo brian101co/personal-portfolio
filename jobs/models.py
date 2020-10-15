@@ -36,13 +36,4 @@ class Job(models.Model):
     def get_absolute_url(self):
         return reverse('jobs:job-detail', kwargs={'slug':self.slug})
 
-    def get_portfolio_url():
-        return reverse('jobs:job-list-id', kwargs={'section_id': '#portfolio'})
-
-    def get_contact_url():
-        return reverse('jobs:job-list-id', kwargs={'section_id': '#contact'})
-
-    def get_about_url():
-        return reverse('jobs:job-list-id', kwargs={'section_id': '#whyme'})
-
        

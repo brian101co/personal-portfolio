@@ -1,7 +1,8 @@
 from django import template
+from django.urls import reverse
 
 register = template.Library()
 
-@register.filter(name='specialChars')
-def special_chars(url):
-    return url.replace('%23', '#')
+@register.simple_tag(name="anchor")
+def route_to_page_anchor(url_name, section_id):
+    return reverse(url_name) + '#' + section_id

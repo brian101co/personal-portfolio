@@ -7,11 +7,6 @@ class PortfolioList(View):
         jobs = Job.objects.filter(practice=False)
         context = {
             'jobs': jobs,
-             'urls': {
-                'portfolio_url': Job.get_portfolio_url(),
-                'contact_url': Job.get_contact_url(),
-                'about_url': Job.get_about_url(),
-            },
         }
         return render(request, 'pages/portfolio-page.html', context=context)
 

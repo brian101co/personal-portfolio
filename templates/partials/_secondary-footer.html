@@ -6,8 +6,8 @@
                 <nav>
                     <ul class="nav justify-content-center">
                         <li class="nav-item"><a href="{% url 'portfolio:portfolio-list' %}" class="nav-link ">Portfolio</a></li>
-                        <li class="nav-item"><a href="{{ urls.about_url|specialChars }}" class="nav-link ">About</a></li>
-                        <li class="nav-item"><a href="{{ urls.contact_url|specialChars }}" class="nav-link ">Contact</a></li>
+                        <li class="nav-item"><a href="{% anchor 'jobs:job-list' 'whyme' %}" class="nav-link ">About</a></li>
+                        <li class="nav-item"><a href="{% anchor 'jobs:job-list' 'contact' %}" class="nav-link ">Contact</a></li>
                     </ul>
                 </nav>
             </div>
