@@ -71,7 +71,7 @@
                     </div>
                     <h5 class="text-center mt-3">{{ post.author.profile.display_name }}</h5>
                     <p>
-                        {{ post.author.profile.bio }}
+                        {{ post.author.profile.bio|safe }}
                     </p>
                 </aside>
             </div>
