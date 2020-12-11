@@ -24,19 +24,24 @@
         <div class="col-sm-12 col-lg-8">
             <main class="bg-white p-4 shadow-sm rounded main-content">
                 {% if post.image %}
-                <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded">
+                <img src="{{ post.image.url }}" alt="" class="img-fluid mb-4 rounded shadow-sm">
                 {% endif %}
                 <h1 class="mb-2 main-title">{{ post.title }}</h1>
                 {% get_comment_count for post as comment_count %}
                 <div class="d-flex flex-wrap mb-4">
                     <p class="mb-0 mr-3 d-flex align-items-center">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        {% if post.author.profile.profile_image_thumbnail %}
+                        <img src="{{ post.author.profile.profile_image_thumbnail.url }}" alt="profile image" height="35" width="35" class="img-fluid rounded-circle mr-2">
+                        {% else %}
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
+                        {% endif %}
+
                         <span>{{ post.author.profile.display_name|title }}</span>
                     </p>
                     <p class="mb-0 mr-3 d-flex align-items-center">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-day mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-day mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                             <path d="M4.684 11.523v-2.3h2.261v-.61H4.684V6.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V8.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105zm2.805-5.093c0 .238.192.425.43.425a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43zm.094 5.093h.672V7.418h-.672v4.105z" />
                         </svg>
@@ -70,7 +75,7 @@
                         {% endif %}
                     </div>
                     <h5 class="text-center mt-3">{{ post.author.profile.display_name }}</h5>
-                    <p>
+                    <p class="text-center">
                         {{ post.author.profile.bio|safe }}
                     </p>
                 </aside>
