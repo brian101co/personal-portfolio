@@ -79,6 +79,7 @@ Dashboard | Oliver Web Development
         <div class="row">
             <div class="col-sm-12 col-md-4">
                 <section>
+                    <!-- Profile Card -->
                     <div class="card">
                         <div class="img-container mx-auto mt-4">
                             {% if user.profile.profile_image_thumbnail %}
@@ -101,7 +102,7 @@ Dashboard | Oliver Web Development
                             </p>
                             {% endif %}
                             {% if user.profile.bio %}
-                            <p class="card-text">{{ user.profile.bio }}</p>
+                            <p class="card-text">{{ user.profile.bio|safe }}</p>
                             {% endif %}
 
                             {% if user.profile.display_name %}
@@ -111,6 +112,7 @@ Dashboard | Oliver Web Development
                             {% endif %}
                         </div>
                     </div>
+                    <!-- End Profile Card -->
 
                     <div class="card mt-3">
                         <div class="card-body">

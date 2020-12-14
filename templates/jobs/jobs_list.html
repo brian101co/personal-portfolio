@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/main-above-fold.css' %}" type="text/css">
 {% endblock %}
 
 {% block head %}
@@ -267,4 +267,17 @@
 {% block scripts %}
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/email.js' %}"></script>
+<script>
+    function loadStyleSheet(src) {
+        const stylesheet = document.createElement("link");
+        stylesheet.href = src;
+        stylesheet.rel = "stylesheet";
+        stylesheet.type = "text/css";
+        document.querySelector("head").appendChild(stylesheet);
+    }
+    
+    window.onload = function() {
+        loadStyleSheet("{% static 'css/main.css' %}");
+    }
+</script>
 {% endblock %}
