@@ -125,3 +125,59 @@
 /*************************************** 
     END MY SKILLS AND SPECIALIZATION
 ****************************************/
+
+/*************************************** 
+           MOBILE DEVICE STYLES 
+****************************************/
+@media(max-width: 500px ) {
+    .card-container .card:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #specialization .col-sm-12:not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    #skills {
+        margin-top: 3.5rem;
+    }
+
+    .lead {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 1.5rem;
+    }
+
+    #header {
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.6))),
+                url('/static/imgs/background_img_mobile.jpeg');
+        background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url('/static/imgs/background_img_mobile.jpeg');
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url('/static/imgs/background_img_mobile.jpeg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    #header .btn {
+        -webkit-align-self: center !important;
+            -ms-flex-item-align: center !important;
+                    -ms-grid-row-align: center !important;
+                align-self: center !important;
+    }
+
+    .specializing {
+        font-size: 2.6rem;
+    }
+
+    .specializing-text {
+        text-align: center;
+    }
+}
+/*************************************** 
+            END MOBILE 
+****************************************/
