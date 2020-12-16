@@ -8,6 +8,7 @@
 
 {% block head %}
 <meta name="description" content="Serving Mississippi and the surrounding area, Oliver Web Development strives to grow your business online.">
+<link rel="stylesheet preload" href="{% static 'css/main.css' %}" type="text/css" media="print">
 {% endblock %}
 
 {% block title %}
@@ -308,16 +309,13 @@ Brian Oliver | Full Stack Developer
 <script defer src="{% static 'js/main.js' %}"></script>
 <script defer src="{% static 'js/email.js' %}"></script>
 <script>
-    function loadStyleSheet(src) {
-        const stylesheet = document.createElement("link");
-        stylesheet.href = src;
-        stylesheet.rel = "stylesheet";
-        stylesheet.type = "text/css";
-        document.querySelector("head").appendChild(stylesheet);
+    function loadStyleSheet() {
+        const stylesheet = document.querySelector('link[media="print"]');
+        stylesheet.media = "all";
     }
 
     window.onload = function () {
-        loadStyleSheet("{% static 'css/main.css' %}");
+        loadStyleSheet();
     }
 </script>
 {% endblock %}
