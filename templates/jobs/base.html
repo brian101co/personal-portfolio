@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="{% static 'css/global.css' %}">
         {% block styles %}{% endblock %}
         {% endcompress %}
+
+        {% block async_styles %}
+        {% endblock %}
         <title>{% block title %}{% endblock %}</title>
     </head>
 
