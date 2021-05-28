@@ -9,4 +9,5 @@ media
 /myvenv
 /.env
 /static
+.DS_store
 server_oliverwebdev.log
