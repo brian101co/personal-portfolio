@@ -37,10 +37,10 @@ class JobListView(View):
             message = f"Hey, my name is { cd['full_name'] }.\n\n { cd['message'] }\n\n My email is { cd['email'] }"
             send_mail(subject, message, 'brian@oliverwebdevelopment.com', ['brian@oliverwebdevelopment.com'])
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
-            return redirect('jobs:job-list')
+            return redirect('projects:project-list')
         else:
             messages.error(request, 'Message failed to send. Please make sure to fill out all the form fields.', extra_tags='alert-error')
-            return redirect('jobs:job-list')
+            return redirect('projects:project-list')
 
 class JobDetailView(View):
     def get(self, request, slug):
@@ -69,10 +69,10 @@ class HireMeView(View):
             message = f"Hey, my name is { cd['full_name'] }.\n\n { cd['message'] }\n\n My email is { cd['email'] }"
             send_mail(subject, message, 'brian@oliverwebdevelopment.com', ['brian@oliverwebdevelopment.com'])
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
-            return redirect('jobs:job-list')
+            return redirect('projects:project-list')
         else:
             messages.error(request, 'Message failed to send. Please make sure to fill out all the form fields.', extra_tags='alert-error')
-            return redirect('jobs:job-list')
+            return redirect('projects:project-list')
 
 class VerifyEmail(View):
     ''' Verifies and Validates Emails for the SayHello Contact Form '''

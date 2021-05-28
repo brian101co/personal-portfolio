@@ -34,7 +34,7 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'blog',
-    'jobs',
+    'projects',
     'pages',
     'dashboard',
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import Post
-from jobs.models import Job
+from projects.models import Job
 from django.db.models import Count
 
 class BlogListView(View):

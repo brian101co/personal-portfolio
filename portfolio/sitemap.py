@@ -1,7 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
 from blog.models import Post
-from jobs.models import Job
+from projects.models import Job
 
 class BlogPostSitemap(Sitemap):
     changefreq = "weekly"
