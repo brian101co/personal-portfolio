@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'imagekit',
     'django_quill',
     'mathfilters',
-    'directmessages',
    
 
     # BLOG COMMENTS
