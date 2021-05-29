@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-from blog.models import Profile
+from .models import Profile
 from django.urls import reverse_lazy
 
 from django.contrib.auth.models import User
