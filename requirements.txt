@@ -7,7 +7,6 @@ defusedxml==0.6.0
 Django==3.2.3
 django-allauth==0.44.0
 django-appconf==1.0.4
-django-comments-xtd==2.9.1
 django-compressor==2.4.1
 django-contrib-comments==2.1.0
 django-crispy-forms==1.11.2
@@ -15,8 +14,6 @@ django-debug-toolbar==3.2.1
 django-honeypot==1.0.1
 django-imagekit==4.0.2
 django-mathfilters==1.0.0
-django-quill-editor==0.1.22
-django-social-share==2.2.1
 django-taggit==1.4.0
 djangorestframework==3.12.4
 docutils==0.16
