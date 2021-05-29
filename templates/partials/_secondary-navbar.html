@@ -19,9 +19,11 @@
         <li class="nav-item mr-4 mr-md-2">
           <a class="nav-link text-white link" href="{% anchor 'projects:project-list' 'contact' %}">Say Hello</a>
         </li>
-        <li class="nav-item mr-4 mr-md-2">
-          <a class="nav-link text-off-white text-white link" href="{% url 'blog:blog-list' %}">Blog</a>
-        </li>
+        {% comment "Temporally Removing Blog" %}
+          <li class="nav-item mr-4 mr-md-2">
+            <a class="nav-link text-off-white text-white link" href="{% url 'blog:blog-list' %}">Blog</a>
+          </li>
+        {% endcomment %}
         {% if user.is_authenticated %}
         <li class="nav-item mr-4 mr-md-2">
           <a class="nav-link text-off-white link" href="{% url 'dashboard' %}">Dashboard</a>

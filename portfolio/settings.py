@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.oliverwebdevelopment.com', 'oliverwebdevelopment.com', '167.99.234.72']
+ALLOWED_HOSTS = ['www.oliverwebdevelopment.com', 'oliverwebdevelopment.com']
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_URL = '/login/'
