@@ -1,17 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from blog.models import Post
 from projects.models import Job
-
-class BlogPostSitemap(Sitemap):
-    changefreq = "weekly"
-    priority = 0.7
-
-    def items(self):
-        return Post.published.all()
-
-    def lastmod(self, obj):
-        return obj.updated
 
 class ProjectSitemap(Sitemap):
     changefreq = "never"
