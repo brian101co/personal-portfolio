@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from taggit.managers import TaggableManager
-from django_quill.fields import QuillField
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
@@ -16,7 +15,6 @@ class Job(models.Model):
     )
     summary = models.TextField()
     body = models.TextField()
-    # main_content = QuillField()
     site_url = models.CharField(max_length=150)
     code_url = models.CharField(max_length=150)
     featured = models.BooleanField(default=False)

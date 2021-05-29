@@ -39,18 +39,11 @@ INSTALLED_APPS = [
 
     # 3rd Party Apps
     'crispy_forms',
-    "taggit",
-    'django_social_share',
+    'taggit',
     'debug_toolbar',
     'compressor',
     'imagekit',
-    'django_quill',
     'mathfilters',
-   
-
-    # BLOG COMMENTS
-    'django_comments_xtd',
-    'django_comments',
    
     # AUTH 
     'allauth',
@@ -61,17 +54,6 @@ INSTALLED_APPS = [
     'honeypot',
     
 ]
-
-COMMENTS_APP = 'django_comments_xtd'
-
-COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
-                     b"Aequam memento rebus in arduis servare mentem.")
-
-# Source mail address used for notifications.
-COMMENTS_XTD_FROM_EMAIL = "noreply@oliverwebdevelopment.com"
-
-# Contact mail address to show in messages.
-COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@oliverwebdevelopment.com"
 
 SITE_ID = 1
 
@@ -114,9 +96,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'brian101co$personal-portfolio',
-	'USER': 'brian101co',
-	'PASSWORD': os.getenv("DB_PASS"),
-	'HOST': 'brian101co.mysql.pythonanywhere-services.com',
+        'USER': 'brian101co',
+        'PASSWORD': os.getenv("DB_PASS"),
+        'HOST': 'brian101co.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -190,27 +172,6 @@ TAGGIT_CASE_INSENSITIVE = True
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
-
-QUILL_CONFIGS = {
-    'default':{
-        'theme': 'snow',
-        'modules': {
-            'syntax': True,
-            'toolbar': [
-                [
-                    {'font': []},
-                    {'header': [2, 3, 4, 5, 6]},
-                    {'align': []},
-                    'bold', 'italic', 'underline', 'strike', 'blockquote',
-                    {'color': []},
-                    {'background': []},
-                ],
-                [{'list': 'ordered'}, {'list': 'bullet'}],
-                ['code-block', 'code', 'link'],
-            ]
-        }
-    }
-}
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
