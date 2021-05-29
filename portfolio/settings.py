@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 
     # Custom Apps
-    'blog',
     'projects',
     'pages',
     'dashboard',
