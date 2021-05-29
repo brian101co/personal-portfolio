@@ -112,12 +112,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oliverwebdev',
-	'USER': 'oliverwebdevadmin',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'brian101co$personal-portfolio',
+	'USER': 'brian101co',
 	'PASSWORD': os.getenv("DB_PASS"),
-	'HOST': 'localhost',
-	'PORT': '',
+	'HOST': 'brian101co.mysql.pythonanywhere-services.com',
     }
 }
 
