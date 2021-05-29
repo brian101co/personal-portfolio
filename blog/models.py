@@ -2,17 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
-from taggit.managers import TaggableManager
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
-from django_quill.fields import QuillField
 
-STATUS_CHOICES = (
-    ('P', 'Published'),
-    ('D', 'Draft'),
-)   
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
@@ -38,40 +32,3 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-
-class PostManager(models.Manager):
-    def get_queryset(self, *args, **kwargs):
-        return super().get_queryset(*args, **kwargs)
-
-    def posts(self):
-        return self.get_queryset().filter(status='P')
-
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200)
-    author = models.ForeignKey(User, 
-                               on_delete=models.CASCADE, 
-                               related_name='blog_posts')
-    summary = models.TextField()
-    body = QuillField()
-    image = models.ImageField(upload_to='images/', blank=True)
-    publish = models.DateTimeField(default=timezone.now)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=1,
-                              choices=STATUS_CHOICES,
-                              default='D')
-    
-    published = PostManager()
-    tags = TaggableManager()
-
-    class Meta:
-        ordering = ('-publish',)
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('blog:blog-detail', kwargs={
-            'slug': self.slug,
-        })
