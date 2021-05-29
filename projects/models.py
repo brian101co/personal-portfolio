@@ -34,6 +34,6 @@ class Job(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('jobs:job-detail', kwargs={'slug':self.slug})
+        return reverse('projects:project-detail', kwargs={'slug':self.slug})
 
        
