@@ -20,7 +20,7 @@ Brian Oliver | Full Stack Developer
 
 {% block content %}
 <header>
-    {% include 'partials/_nav-bar.html' with jobs=jobs %}
+    {% include 'partials/_navbar.html' %}
     <div class="jumbotron jumbotron-fluid" id="header">
         <div class="container d-flex flex-column">
             <h1 class="display-4 lead text-white">
@@ -191,7 +191,7 @@ Brian Oliver | Full Stack Developer
                         <div class="tech-stack">
                             <strong>Tech Stack:</strong>
                             {% for tag in job.tags.all %}
-                            <span class="badge badge-pill">{{ tag|title }}</span>
+                            <span class="badge badge-pill">{{ tag }}</span>
                             {% endfor %}
                         </div>
                         <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">View Project</a>
