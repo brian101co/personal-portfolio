@@ -310,15 +310,4 @@ Brian Oliver | Full Stack Developer
 
 {% block scripts %}
 <script defer src="{% static 'js/main.js' %}"></script>
-<script defer src="{% static 'js/email.js' %}"></script>
-<script>
-    function loadStyleSheet() {
-        const stylesheet = document.querySelector('link[media="print"]');
-        stylesheet.media = "all";
-    }
-
-    window.onload = function () {
-        loadStyleSheet();
-    }
-</script>
 {% endblock %}
