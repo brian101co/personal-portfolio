@@ -33,4 +33,13 @@ $(document).ready(() => {
     var height = $('.carousel-inner:first-child').outerHeight()
 
     $('.carousel-inner .slider').css("height", height.toString());
-})
+});
+
+function loadStyleSheet() {
+  const stylesheet = document.querySelector('link[media="print"]');
+  stylesheet.media = "all";
+}
+
+window.onload = function () {
+  loadStyleSheet();
+}
