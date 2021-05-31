@@ -58,14 +58,7 @@
     font-weight: bold;
 }
 
-.card-img-wrapper {
-    overflow: hidden;
-    height: 250px;
-}
-
 .card-img-wrapper img {
-    -o-object-position: center;
-       object-position: center;
     height: 100%;
     width: 100%;
 }
