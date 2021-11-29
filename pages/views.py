@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views import View
-from projects.models import Job
+from projects.models import Project
 
 class PortfolioList(View):
     def get(self, request):
-        jobs = Job.objects.all()
+        jobs = Project.objects.all()
         context = {
             'jobs': jobs,
         }

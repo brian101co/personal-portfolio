@@ -4,7 +4,7 @@ from taggit.managers import TaggableManager
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
-class Job(models.Model):
+class Project(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
     image = models.ImageField(
@@ -35,12 +35,12 @@ class Job(models.Model):
         max_length=120, 
         blank=True
     )
-    created = models.DateField(blank=True)
+    completed_date = models.DateField(blank=True)
     
     tags = TaggableManager()
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('-completed_date',)
     
     def __str__(self):
         return self.title

@@ -4,7 +4,7 @@ from django.http import JsonResponse
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from .models import Job
+from .models import Project
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -15,10 +15,10 @@ from honeypot.decorators import check_honeypot
 @method_decorator(check_honeypot, name='dispatch')
 class JobListView(View):
     def get_all_jobs(self):
-        return Job.objects.all()
+        return Project.objects.all()
 
     def get_featured_jobs(self):
-        return Job.objects.filter(featured=True)
+        return Project.objects.filter(featured=True)
 
     def get(self, request, *args, **kwargs):
         jobs = self.get_featured_jobs()
@@ -44,7 +44,7 @@ class JobListView(View):
 
 class JobDetailView(View):
     def get(self, request, slug):
-        job = get_object_or_404(Job, slug=slug)
+        job = get_object_or_404(Project, slug=slug)
         similar_jobs = Job.objects.exclude(slug=slug)[:3]
         context = {
             'job': job,

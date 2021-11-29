@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Job
+from .models import Project
 
-@admin.register(Job)
-class JobAdmin(admin.ModelAdmin):
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = [
         (None, {
