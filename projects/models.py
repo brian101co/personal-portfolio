@@ -7,21 +7,35 @@ from imagekit.processors import ResizeToFill
 class Job(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
-    image = models.ImageField(upload_to='images/', blank=True)
-    image_thumbnail = ImageSpecField(source='image',
-                                     processors=[ResizeToFill(300, 250)],
-                                     format='JPEG',
-                                     options={'quality': 90}
+    image = models.ImageField(
+        upload_to='images/', 
+        blank=True
+    )
+    image_thumbnail = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(300, 250)],
+        format='JPEG',
+        options={'quality': 90}
     )
     summary = models.TextField()
     body = models.TextField()
-    site_url = models.CharField(max_length=150)
-    code_url = models.CharField(max_length=150)
+    site_url = models.URLField(
+        max_length=150,
+        blank=True, 
+        null=True
+    )
+    code_url = models.URLField(
+        max_length=150, 
+        blank=True, 
+        null=True
+    )
     featured = models.BooleanField(default=False)
     testimonial = models.TextField(blank=True)
-    reviewer = models.CharField(max_length=120)
+    reviewer = models.CharField(
+        max_length=120, 
+        blank=True
+    )
     created = models.DateField(blank=True)
-    practice = models.BooleanField(default=False)
     
     tags = TaggableManager()
 
