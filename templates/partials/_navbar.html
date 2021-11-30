@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'projects:project-list' %}">
+        <a class="navbar-brand" href="{% url 'home' %}">
           <img src="{% static 'imgs/logo.svg' %}" alt="Oliver Web Development">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-4 mr-md-2">
-              <a class="nav-link text-off-white link" href="{% url 'portfolio:portfolio-list' %}">Portfolio</a>
+              <a class="nav-link text-off-white link" href="{% url 'project-list' %}">Portfolio</a>
             </li>
             <li class="nav-item mr-4 mr-md-2">
               <a class="nav-link text-off-white link" href="/#whyme">About</a>
@@ -35,7 +35,7 @@
             </li>
             {% endif %}
             <li class="nav-item">
-              <a class="nav-link btn btn-outline-primary text-off-white px-3" href="{% url 'projects:hire-me' %}">Hire Me</a>
+              <a class="nav-link btn btn-outline-primary text-off-white px-3" href="{% url 'hire-me' %}">Hire Me</a>
             </li>
           </ul>
         </div>

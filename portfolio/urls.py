@@ -13,12 +13,12 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('portfolio/', include('pages.urls', namespace='portfolio')),
+    path('portfolio/', include('projects.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('', include('allauth.urls')),
-    path('', include('projects.urls', namespace='projects')),
+    path('', include('pages.urls')),
 ]
 
 

@@ -6,10 +6,10 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = [
         (None, {
-            'fields': ('slug', 'tags', 'created')
+            'fields': ('slug', 'tags', 'completed_date')
         }),
         ('Project Details', {
-            'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured', 'practice')
+            'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured')
         }),
         ('Testimonial', {
             'fields': ('testimonial', 'reviewer')
