@@ -70,24 +70,16 @@ Dashboard | Oliver Web Development
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-center h4">
                                 {% if user.profile.display_name %}
-                                {{ user.profile.display_name }}
+                                    {{ user.profile.display_name }}
                                 {% else %}
-                                My Name
+                                    My Name
                                 {% endif %}
                             </h5>
-                            {% if user.profile.location %}
-                            <p class="card-text text-center">
-                                {{ user.profile.location }}
-                            </p>
-                            {% endif %}
-                            {% if user.profile.bio %}
-                            <p class="card-text">{{ user.profile.bio|safe }}</p>
-                            {% endif %}
-
+                    
                             {% if user.profile.display_name %}
-                            <a href="{% url 'update-profile' user.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'update-profile' user.id %}" class="btn btn-primary">Edit</a>
                             {% else %}
-                            <a href="{% url 'update-profile' user.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
+                                <a href="{% url 'update-profile' user.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
                             {% endif %}
                         </div>
                     </div>
