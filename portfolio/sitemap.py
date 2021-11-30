@@ -10,11 +10,11 @@ class ProjectSitemap(Sitemap):
         return Project.objects.all()
 
     def lastmod(self, obj):
-        return obj.created
+        return obj.completed_date
 
 class StaticViewSitemap(Sitemap):
     def items(self):
-        return ['jobs:hire-me', 'jobs:job-list']
+        return ['hire-me', 'home']
 
     def location(self, item):
         return reverse(item)
