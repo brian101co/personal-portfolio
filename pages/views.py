@@ -11,6 +11,7 @@ from honeypot.decorators import check_honeypot
 
 @method_decorator(check_honeypot, name='dispatch')
 class HomepageView(View):
+
     def get_all_jobs(self):
         return Project.objects.all()
 
@@ -29,7 +30,7 @@ class HomepageView(View):
     def post(self, request):
         form = ContactForm(request.POST)
         if form.is_valid():
-            ContactEmail.send_email("email/contact_form_email.html", **form.cleaned_data)
+            ContactEmail("email/contact_form_email.html", **form.cleaned_data).send()
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
             return redirect('home')
         else:
@@ -38,6 +39,7 @@ class HomepageView(View):
 
 @method_decorator(check_honeypot, name='dispatch')
 class HireMeView(View):
+    
     def get(self, request):
         form = ContactForm()
         context = { 'form': form }
@@ -46,7 +48,7 @@ class HireMeView(View):
     def post(self, request):
         form = ContactForm(request.POST)
         if form.is_valid():
-            ContactEmail.send_email("email/contact_form_email.html", **form.cleaned_data)
+            ContactEmail("email/contact_form_email.html", **form.cleaned_data).send()
             messages.success(request, 'Your message has successfully been sent. I will get back to you soon.', extra_tags='alert-success')
             return redirect('home')
         else:
