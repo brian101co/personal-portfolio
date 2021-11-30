@@ -6,11 +6,6 @@ from .models import Profile
 from django.urls import reverse_lazy
 
 from django.contrib.auth.models import User
-from django.utils import timezone
-
-import json
-from django.http import JsonResponse
-from django.core import serializers
 
 
 class DashboardVeiw(LoginRequiredMixin, View):
