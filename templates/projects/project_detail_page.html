@@ -38,7 +38,11 @@
                         {% endfor %}
                     </p>
                     <div class="d-flex mt-4">
+                        {% if job.site_url %}
                         <a href="{{ job.site_url }}" class="btn btn-primary mr-2">Live Site</a>
+                        {% elif job.code_url%}
+                        <a href="{{ job.code_url }}" class="btn btn-primary mr-2">Code</a>
+                        {% endif %}
                     </div>
 
                 </main>
