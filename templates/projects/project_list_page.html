@@ -31,7 +31,10 @@ Portfolio Projects | Oliver Web Development
                           </div>
                         <div class="col-md-8 col-lg-7">
                             <div class="card-body">
-                              <h1 class="card-title h5">{{ project }}</h1>
+                              <h2 class="card-title h5 font-weight-bold mb-0">{{ project|title }}</h2>
+                              <div class="mb-2">
+                                <small>Completed <time datetime="{{ project.completed_date }}">{{ project.completed_date|date:"M j, Y" }}</time></small>
+                              </div>
                               <p class="card-text">{{ project.summary|truncatewords:35 }}</p>
                               <a href="{{ project.get_absolute_url }}" class="btn btn-primary">View Project</a>
                             </div>
