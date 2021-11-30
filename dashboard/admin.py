@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Project, Update
+from .models import Service, Project, Update, Profile
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -11,4 +11,8 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Update)
 class UpdateAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
     pass
