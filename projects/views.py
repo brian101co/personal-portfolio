@@ -5,10 +5,8 @@ from .models import Project
 
 class ProjectListView(View):
     def get(self, request):
-        jobs = Project.objects.filter()
-        context = {
-            'jobs': jobs,
-        }
+        projects = Project.objects.all()
+        context = { 'jobs': projects }
         return render(request, 'projects/project_list_page.html', context=context)
 
 class ProjectDetailView(View):
