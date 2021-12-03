@@ -12,3 +12,4 @@ media
 .DS_store
 server_oliverwebdev.log
 db
+.cache

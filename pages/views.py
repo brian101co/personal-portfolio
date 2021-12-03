@@ -5,6 +5,7 @@ from .forms import ContactForm
 from .email import ContactEmail
 from django.contrib import messages
 from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from honeypot.decorators import check_honeypot
 
@@ -37,6 +38,9 @@ class HomepageView(View):
             messages.error(request, 'Message failed to send. Please make sure to fill out all the form fields.', extra_tags='alert-error')
             return redirect('home')
 
+
+# 259200 = 30 days
+@method_decorator(cache_page(2592000), name='dispatch')
 @method_decorator(check_honeypot, name='dispatch')
 class HireMeView(View):
     
