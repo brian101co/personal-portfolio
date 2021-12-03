@@ -3,6 +3,10 @@ from django.urls import reverse
 from taggit.managers import TaggableManager
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -48,4 +52,8 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('project-detail', kwargs={'slug':self.slug})
 
-       
+
+@receiver(post_save, sender=Project)
+def reset_portfolio_list_page_cache(**kwargs):
+    key = make_template_fragment_key("portfolio_list")
+    cache.delete(key)

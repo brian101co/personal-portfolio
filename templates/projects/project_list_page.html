@@ -1,6 +1,6 @@
 {% extends 'projects/base.html' %}
 
-{% load static mathfilters %}
+{% load static cache %}
 
 {% block title %}
 Portfolio Projects | Oliver Web Development
@@ -23,6 +23,7 @@ Portfolio Projects | Oliver Web Development
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                  {% cache 2592000 portfolio_list %}
                     {% for project in jobs %}
                     <article class="card mb-3 mx-auto" style="max-width: 840px;">
                         <div class="row no-gutters">
@@ -42,6 +43,7 @@ Portfolio Projects | Oliver Web Development
                         </div>
                     </article>
                     {% endfor %}
+                  {% endcache %}
                 </div>
             </div>
 
