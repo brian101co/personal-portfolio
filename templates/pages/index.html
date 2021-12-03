@@ -1,6 +1,6 @@
 {% extends 'projects/base.html' %}
 
-{% load static %}
+{% load static cache %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/main-above-fold.css' %}" type="text/css">
@@ -181,26 +181,28 @@ Brian Oliver | Full Stack Developer
                 <p class="text-muted text-center">A selection of projects that I have designed and developed.</p>
             </div>
             <div class="row d-flex justify-content-around card-container">
-                {% for job in jobs %}
-                <div class="card custom-card" style="width: 21rem;" id="{{ job.slug }}">
-                    {% if job.image %}
-                    <div class="card-img-wrapper">
-                        <img src="{{ job.image_thumbnail.url }}" class="card-img-top" alt="{{ job.title }}" height="250px" width="100vw">
-                    </div>
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ job.title|title }}</h5>
-                        <p class="card-text">{{ job.summary|truncatewords:25 }}</p>
-                        <div class="tech-stack">
-                            <strong>Tech Stack:</strong>
-                            {% for tag in job.tags.all %}
-                            <span class="badge badge-pill">{{ tag }}</span>
-                            {% endfor %}
+                {% cache 2592000 featured_projects %}
+                    {% for job in jobs %}
+                    <div class="card custom-card" style="width: 21rem;" id="{{ job.slug }}">
+                        {% if job.image %}
+                        <div class="card-img-wrapper">
+                            <img src="{{ job.image_thumbnail.url }}" class="card-img-top" alt="{{ job.title }}" height="250px" width="100vw">
                         </div>
-                        <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">View Project</a>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ job.title|title }}</h5>
+                            <p class="card-text">{{ job.summary|truncatewords:25 }}</p>
+                            <div class="tech-stack">
+                                <strong>Tech Stack:</strong>
+                                {% for tag in job.tags.all %}
+                                <span class="badge badge-pill">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <a href="{{ job.get_absolute_url }}" class="btn btn-primary mt-3 card-cta" aria-labelledby="{{ job.slug }}">View Project</a>
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endcache %}
             </div>
         </div>
     </section>

@@ -54,6 +54,10 @@ class Project(models.Model):
 
 
 @receiver(post_save, sender=Project)
-def reset_portfolio_list_page_cache(**kwargs):
-    key = make_template_fragment_key("portfolio_list")
-    cache.delete(key)
+def reset_portfolio_list_page_cache(sender, instance, **kwargs):
+    if instance.featured:
+        featured_key = make_template_fragment_key("featured_projects")
+        cache.delete(featured_key)
+        return
+    portfolio_key = make_template_fragment_key("portfolio_list")
+    cache.delete(portfolio_key)
