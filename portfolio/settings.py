@@ -204,6 +204,14 @@ LOGGING = {
     },
 }
 
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': f'{os.getcwd()}/.cache',
+    }
+}
+
 try:
     from .local_settings import *
 except ImportError:
