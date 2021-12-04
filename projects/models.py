@@ -19,7 +19,7 @@ class Project(models.Model):
         source='image',
         processors=[ResizeToFit(300, 250)],
         format='JPEG',
-        options={'quality': 90}
+        options={'quality': 100}
     )
     summary = models.TextField()
     body = models.TextField()
