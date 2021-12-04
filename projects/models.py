@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from taggit.managers import TaggableManager
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToFit
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.cache import cache
@@ -17,7 +17,7 @@ class Project(models.Model):
     )
     image_thumbnail = ImageSpecField(
         source='image',
-        processors=[ResizeToFill(300, 250)],
+        processors=[ResizeToFit(300, 250)],
         format='JPEG',
         options={'quality': 90}
     )

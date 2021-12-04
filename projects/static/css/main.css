@@ -58,9 +58,14 @@
     font-weight: bold;
 }
 
-.card-img-wrapper img {
+.card-img-wrapper {
+    height: 225px;
+    overflow: hidden;
+}
+
+.card-img-top {
     height: 100%;
-    width: 100%;
+    object-fit: fill;
 }
 
 .custom-card {
