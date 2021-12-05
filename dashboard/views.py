@@ -16,6 +16,6 @@ class DashboardVeiw(LoginRequiredMixin, View):
 class UpdateProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
     template_name = 'dashboard/update_profile.html'
-    fields = ('profile_image_thumbnail', 'display_name')
+    fields = ('profile_image_thumbnail', 'display_name', 'email')
     success_url = reverse_lazy('dashboard')
 

@@ -66,9 +66,9 @@ Dashboard | Oliver Web Development
                             </h5>
                     
                             {% if user.profile.display_name %}
-                                <a href="{% url 'update-profile' user.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'update-profile' user.profile.id %}" class="btn btn-primary">Edit</a>
                             {% else %}
-                                <a href="{% url 'update-profile' user.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
+                                <a href="{% url 'update-profile' user.profile.id %}" class="btn btn-primary w-50 align-self-center">Set Up Profile</a>
                             {% endif %}
                         </div>
                     </div>
