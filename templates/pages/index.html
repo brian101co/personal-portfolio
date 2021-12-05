@@ -244,19 +244,21 @@ Brian Oliver | Full Stack Developer
                     <h1 class="text-center display-4 mb-4">Testimonials</h1>
                     <div id="carousel-controls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            {% for review in reviews %}
-                            <div class="carousel-item {% if forloop.counter ==  1 %}active{% endif %}">
-                                <div class="slider d-flex flex-column justify-content-center align-items-center">
-                                    <div class="profile-wrapper">
-                                        <img src="{{ review.reviewer_photo.url }}" alt="{{ review.reviewer_name }}" height="200px" width="200px" class="img-fluid">
+                            {% cache 2592000 featured_reviews %}
+                                {% for review in reviews %}
+                                <div class="carousel-item {% if forloop.counter ==  1 %}active{% endif %}">
+                                    <div class="slider d-flex flex-column justify-content-center align-items-center">
+                                        <div class="profile-wrapper">
+                                            <img src="{{ review.reviewer_photo.url }}" alt="{{ review.reviewer_name }}" height="200px" width="200px" class="img-fluid">
+                                        </div>
+                                        <h3 class="mt-3 mb-2">{{ review.reviewer_name|title }}</h3>
+                                        <p class="px-3 text-center">
+                                            {{ review.review_body }}
+                                        </p>
                                     </div>
-                                    <h3 class="mt-3 mb-2">{{ review.reviewer_name|title }}</h3>
-                                    <p class="px-3 text-center">
-                                        {{ review.review_body }}
-                                    </p>
                                 </div>
-                            </div>
-                            {% endfor %}
+                                {% endfor %}
+                            {% endcache %}
                         <a class="carousel-control-prev text-dark" href="#carousel-controls" role="button" data-slide="prev">
                             <span aria-hidden="true">
                                 <img src="{% static 'imgs/slider-chevron-left.svg' %}" alt="prev button">
