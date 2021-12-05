@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'projects',
     'pages',
     'dashboard',
+    'review',
 
     # 3rd Party Apps
     'crispy_forms',
