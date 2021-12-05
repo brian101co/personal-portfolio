@@ -27,12 +27,12 @@
                     {% autoescape off %}
                     <p>{{ job.body|linebreaks }}</p>
                     {% endautoescape %}
-                    {% if job.testimonial %}
-                    <h2 class="mb-3">Testimonial</h2>
-                    <blockquote class="blockquote">
-                        <p class="mb-0">"{{ job.testimonial }}"</p>
-                        <footer class="blockquote-footer"><cite class="{{ job.reviewer }}">{{ job.reviewer }}</cite></footer>
-                    </blockquote>
+                    {% if review %}
+                        <h2 class="mb-3">Testimonial</h2>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"{{ review.review_body }}"</p>
+                            <footer class="blockquote-footer"><cite class="{{ job.reviewer }}">{{ review.reviewer_name|title }}</cite></footer>
+                        </blockquote>
                     {% endif %}
                     <p class="mt-4">
                         <strong>Technologies:</strong>
