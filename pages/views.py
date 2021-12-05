@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from projects.models import Project
+from review.models import Review
 from .forms import ContactForm
 from .email import ContactEmail
 from django.contrib import messages
@@ -13,18 +14,17 @@ from honeypot.decorators import check_honeypot
 @method_decorator(check_honeypot, name='dispatch')
 class HomepageView(View):
 
-    def get_all_jobs(self):
-        return Project.objects.all()
+    def featured_reviews(self):
+        return Review.objects.filter(featured=True)
 
-    def get_featured_jobs(self):
+    def featured_projects(self):
         return Project.objects.filter(featured=True)
 
     def get(self, request, *args, **kwargs):
-        jobs = self.get_featured_jobs()
-        form = ContactForm()
         context = {
-            'jobs': jobs,
-            'form': form,
+            'jobs': self.featured_projects(),
+            'form': ContactForm(),
+            'reviews': self.featured_reviews(),
         }
         return render(request, 'pages/index.html', context=context)
     
