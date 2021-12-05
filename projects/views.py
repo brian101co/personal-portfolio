@@ -14,7 +14,10 @@ class ProjectDetailView(View):
     def get(self, request, slug):
         project = get_object_or_404(Project, slug=slug)
         similar_jobs = Project.objects.exclude(slug=slug)[:3]
-        review = Review.objects.filter(project=project).all()
+        try:
+            review = Review.objects.get(project=project)
+        except Review.DoesNotExist:
+            review = None
         context = {
             'job': project,
             'similar_jobs': similar_jobs,
