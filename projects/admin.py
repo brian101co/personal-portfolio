@@ -10,9 +10,6 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
         ('Project Details', {
             'fields': ('title', 'image', 'summary', 'body', 'code_url', 'site_url', 'featured')
-        }),
-        ('Testimonial', {
-            'fields': ('testimonial', 'reviewer')
         })
     ]
     list_display = ('title', 'featured')
