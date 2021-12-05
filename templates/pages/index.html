@@ -244,48 +244,19 @@ Brian Oliver | Full Stack Developer
                     <h1 class="text-center display-4 mb-4">Testimonials</h1>
                     <div id="carousel-controls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active ">
+                            {% for review in reviews %}
+                            <div class="carousel-item {% if forloop.counter ==  1 %}active{% endif %}">
                                 <div class="slider d-flex flex-column justify-content-center align-items-center">
                                     <div class="profile-wrapper">
-                                        <img src="{% static 'imgs/mike.jpg' %}" alt="Mike Price" height="200px" width="200px" class="img-fluid">
+                                        <img src="{{ review.reviewer_photo.url }}" alt="{{ review.reviewer_name }}" height="200px" width="200px" class="img-fluid">
                                     </div>
-                                    <h3 class="mt-3 mb-2">Mike Price</h3>
+                                    <h3 class="mt-3 mb-2">{{ review.reviewer_name|title }}</h3>
                                     <p class="px-3 text-center">
-                                        I am Dr. Mike Price and I wanted something simple, beautiful and easy to use when posting articles and photos on Mike Price Photography
-                                        web page. Brian not only made it easy for me to use, but also did the same for those who would access the page. It is simple, easy to move
-                                        around on and very organized. It will be very convenient and effortless for anyone to navigate. I would like to thank Brian Oliver for his
-                                        brilliant work. He is very kind and a pleasure to work with. The web page is even better than I thought it would end up being. Thank you
-                                        Brian.
+                                        {{ review.review_body }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="carousel-item ">
-                                <div class="slider d-flex flex-column justify-content-center align-items-center">
-                                    <div class="profile-wrapper">
-                                        <img src="{% static 'imgs/isaac.jpeg' %}" height="150px" width="150px" alt="Isaac Slatten" class="img-fluid">
-                                    </div>
-                                    <h3 class="mt-3 mb-2">Isaac Slatten</h3>
-                                    <p class="px-3 text-center">
-                                        Brian did an amazing job with making a website for me. I needed something for my barbering business, and he did an outstanding job.
-                                        A whole booking/ scheduling system was made, and the best part is that I’m able to have control over what days and times are open for
-                                        appointments.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="carousel-item ">
-                                <div class="slider d-flex flex-column justify-content-center align-items-center">
-                                    <div class="profile-wrapper">
-                                        <img src="{% static 'imgs/brad.jpg' %}" height="150px" width="150px" alt="Isaac Slatten" class="img-fluid">
-                                    </div>
-                                    <h3 class="mt-3 mb-2">Brad Tyler</h3>
-                                    <p class="px-3 text-center">
-                                        We had Brian put together a webpage for our organization, and we couldnt have been more 
-                                        pleased with the results. The page looks sharp and professional. We immediately saw an 
-                                        increase in the number of people reaching out to us after seeing the webpage.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            {% endfor %}
                         <a class="carousel-control-prev text-dark" href="#carousel-controls" role="button" data-slide="prev">
                             <span aria-hidden="true">
                                 <img src="{% static 'imgs/slider-chevron-left.svg' %}" alt="prev button">
