@@ -34,11 +34,6 @@ class Project(models.Model):
         null=True
     )
     featured = models.BooleanField(default=False)
-    testimonial = models.TextField(blank=True)
-    reviewer = models.CharField(
-        max_length=120, 
-        blank=True
-    )
     completed_date = models.DateField(blank=True)
     
     tags = TaggableManager()
