@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
@@ -18,4 +18,10 @@ class UpdateProfileView(LoginRequiredMixin, UpdateView):
     template_name = 'dashboard/update_profile.html'
     fields = ('profile_image_thumbnail', 'display_name', 'email')
     success_url = reverse_lazy('dashboard')
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.user.id == request.user.id:
+            return super().get(request, *args, **kwargs)
+        return redirect('dashboard')
 
