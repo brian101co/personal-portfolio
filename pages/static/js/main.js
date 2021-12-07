@@ -30,9 +30,11 @@ $(document).ready(() => {
       $('.alert').remove()
     }, 3000)
 
-    var height = $('.carousel-inner:first-child').outerHeight()
-
-    $('.carousel-inner .slider').css("height", height.toString());
+    const carouselItemHeights = [];
+    $('.carousel-inner').each(function() {
+      carouselItemHeights.push(this.outerHeight());
+    });
+    $('.carousel-inner .slider').css("height", Math.max(...carouselItemHeights));
 });
 
 function loadStyleSheet() {
