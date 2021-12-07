@@ -32,7 +32,7 @@ $(document).ready(() => {
 
     const carouselItemHeights = [];
     $('.carousel-inner').each(function() {
-      carouselItemHeights.push(this.outerHeight());
+      carouselItemHeights.push($(this).outerHeight());
     });
     $('.carousel-inner .slider').css("height", Math.max(...carouselItemHeights));
 });
